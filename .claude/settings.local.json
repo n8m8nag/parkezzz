@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C \"C:\\\\Users\\\\Admin\\\\Desktop\\\\NAMAN WEBAPP\\\\basic-webapp\" status)",
+      "Bash(git -C \"C:\\\\Users\\\\Admin\\\\Desktop\\\\NAMAN WEBAPP\\\\basic-webapp\" remote -v)"
+    ]
+  }
+}
