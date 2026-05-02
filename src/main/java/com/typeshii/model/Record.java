@@ -7,7 +7,7 @@ public class Record {
 
     private int recordId;
     private int slotNo;
-    private int vehicleNo;
+    private String vehicleNo;
     private int userId;
     private String actionType;
     private Timestamp actionTime;
@@ -26,8 +26,8 @@ public class Record {
     public int getSlotNo() { return slotNo; }
     public void setSlotNo(int slotNo) { this.slotNo = slotNo; }
 
-    public int getVehicleNo() { return vehicleNo; }
-    public void setVehicleNo(int vehicleNo) { this.vehicleNo = vehicleNo; }
+    public String getVehicleNo() { return vehicleNo; }
+    public void setVehicleNo(String vehicleNo) { this.vehicleNo = vehicleNo; }
 
     public int getUserId() { return userId; }
     public void setUserId(int userId) { this.userId = userId; }

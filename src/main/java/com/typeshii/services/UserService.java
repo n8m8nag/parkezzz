@@ -12,9 +12,11 @@ public class UserService {
     private UserDAO userDAO = new UserDAO();
     private VehicleDAO vehicleDAO = new VehicleDAO();
 
-    // login - find user by student id
-    public User login(String id) {
-        return userDAO.getUserById(id);
+    // login - find user by vehicle number
+    public User login(String vehicleNo) {
+        Vehicle vehicle = vehicleDAO.getVehicleByPlate(vehicleNo);
+        if (vehicle == null) return null;
+        return userDAO.getUserByUserId(vehicle.getUserId());
     }
 
     // register new user
@@ -30,6 +32,11 @@ public class UserService {
     // check if student id already exists
     public boolean isIdTaken(String id) {
         return userDAO.getUserById(id) != null;
+    }
+
+    // check if vehicle number already registered
+    public boolean isVehicleNoTaken(String vehicleNo) {
+        return vehicleDAO.getVehicleByPlate(vehicleNo) != null;
     }
 
     // get all users for admin page

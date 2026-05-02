@@ -17,8 +17,8 @@
                 <p class="success-msg">${success}</p>
             <% } %>
             <form action="${pageContext.request.contextPath}/user/login" method="post">
-                <label>Student ID</label>
-                <input type="text" name="id" placeholder="Enter your Student ID" required/>
+                <label>Vehicle Number</label>
+                <input type="text" name="vehicleNo" placeholder="e.g. BA1PA1234" required/>
                 <button type="submit" class="btn-blue">Sign In</button>
             </form>
         </div>

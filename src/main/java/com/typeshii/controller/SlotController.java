@@ -38,9 +38,9 @@ public class SlotController extends HttpServlet {
         String path = req.getPathInfo();
         if (path == null) path = "/";
 
-        int slotNo    = Integer.parseInt(req.getParameter("slotNo"));
-        int vehicleNo = Integer.parseInt(req.getParameter("vehicleNo"));
-        int userId    = Integer.parseInt(req.getParameter("userId"));
+        int slotNo       = Integer.parseInt(req.getParameter("slotNo"));
+        String vehicleNo = req.getParameter("vehicleNo");
+        int userId       = Integer.parseInt(req.getParameter("userId"));
 
         switch (path) {
             case "/enter":

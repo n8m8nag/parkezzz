@@ -45,16 +45,16 @@ public class VehicleDAO {
 
     // insert new vehicle
     public int insertVehicle(Vehicle vehicle) {
-        String sql = "INSERT INTO vehicle (user_id, model, color, vehicle_type) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO vehicle (vehicle_no, user_id, model, color, vehicle_type) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = DBConnection.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            ps.setInt(1, vehicle.getUserId());
-            ps.setString(2, vehicle.getModel());
-            ps.setString(3, vehicle.getColor());
-            ps.setString(4, vehicle.getVehicleType());
-            ps.executeUpdate();
-            ResultSet keys = ps.getGeneratedKeys();
-            if (keys.next()) return keys.getInt(1);
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, vehicle.getVehicleNo());
+            ps.setInt(2, vehicle.getUserId());
+            ps.setString(3, vehicle.getModel());
+            ps.setString(4, vehicle.getColor());
+            ps.setString(5, vehicle.getVehicleType());
+            int rows = ps.executeUpdate();
+            if (rows > 0) return 1;
         } catch (Exception e) {
             System.err.println("VehicleDAO.insertVehicle error: " + e.getMessage());
         }
@@ -64,7 +64,7 @@ public class VehicleDAO {
     // maps resultset row to vehicle object
     private Vehicle mapVehicle(ResultSet rs) throws SQLException {
         Vehicle v = new Vehicle();
-        v.setVehicleNo(rs.getInt("vehicle_no"));
+        v.setVehicleNo(rs.getString("vehicle_no"));
         v.setUserId(rs.getInt("user_id"));
         v.setModel(rs.getString("model"));
         v.setColor(rs.getString("color"));

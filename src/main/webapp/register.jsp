@@ -36,6 +36,8 @@
                 </div>
                 <div class="panel">
                     <h3>Vehicle Info</h3>
+                    <label>Vehicle Number</label>
+                    <input type="text" name="vehicleNo" placeholder="e.g. BA1PA1234" required/>
                     <label>Model</label>
                     <input type="text" name="model" placeholder="e.g. Honda Dio" required/>
                     <label>Color</label>

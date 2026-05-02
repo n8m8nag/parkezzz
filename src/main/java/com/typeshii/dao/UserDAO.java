@@ -9,10 +9,27 @@ import java.util.List;
 // handles all db stuff for user table
 public class UserDAO {
 
-    // find user by student id - used for login
+    // find user by primary key user_id
+    public User getUserByUserId(int userId) {
+        User user = null;
+        String sql = "SELECT * FROM users WHERE user_id = ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, userId);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                user = mapUser(rs);
+            }
+        } catch (Exception e) {
+            System.err.println("UserDAO.getUserByUserId error: " + e.getMessage());
+        }
+        return user;
+    }
+
+    // find user by student id - used for duplicate check
     public User getUserById(String id) {
         User user = null;
-        String sql = "SELECT * FROM user WHERE id = ?";
+        String sql = "SELECT * FROM users WHERE id = ?";
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, id);
@@ -29,7 +46,7 @@ public class UserDAO {
     // find user by phone - for duplicate check
     public User getUserByPhone(String phone) {
         User user = null;
-        String sql = "SELECT * FROM user WHERE phone = ?";
+        String sql = "SELECT * FROM users WHERE phone = ?";
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, phone);
@@ -45,7 +62,7 @@ public class UserDAO {
 
     // insert new user
     public int insertUser(User user) {
-        String sql = "INSERT INTO user (full_name, id, phone, user_type) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO users (full_name, id, phone, user_type) VALUES (?, ?, ?, ?)";
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, user.getFullName());
@@ -64,7 +81,7 @@ public class UserDAO {
     // get all users - for admin users page
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<>();
-        String sql = "SELECT * FROM user ORDER BY user_id";
+        String sql = "SELECT * FROM users ORDER BY user_id";
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ResultSet rs = ps.executeQuery();

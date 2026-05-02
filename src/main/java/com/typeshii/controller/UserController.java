@@ -63,24 +63,25 @@ public class UserController extends HttpServlet {
     private void handleLogin(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
 
-        String id = req.getParameter("id");
+        String vehicleNo = req.getParameter("vehicleNo");
 
-        if (id == null || id.trim().isEmpty()) {
-            req.setAttribute("error", "Please enter your student ID");
+        if (vehicleNo == null || vehicleNo.trim().isEmpty()) {
+            req.setAttribute("error", "Please enter your vehicle number");
             req.getRequestDispatcher("/index.jsp").forward(req, res);
             return;
         }
 
-        User user = userService.login(id.trim());
+        User user = userService.login(vehicleNo.trim());
 
         if (user == null) {
-            req.setAttribute("error", "Student ID not found. Please register first.");
+            req.setAttribute("error", "Vehicle number not found. Please register first.");
             req.getRequestDispatcher("/index.jsp").forward(req, res);
             return;
         }
 
         // set session and redirect to slot finder
         req.getSession().setAttribute("loggedInUser", user);
+        req.getSession().setAttribute("vehicleNo", vehicleNo.trim().toUpperCase());
         res.sendRedirect(req.getContextPath() + "/user/findSlot");
     }
 
@@ -91,13 +92,14 @@ public class UserController extends HttpServlet {
         String id          = req.getParameter("id");
         String phone       = req.getParameter("phone");
         String userType    = req.getParameter("userType");
+        String vehicleNo   = req.getParameter("vehicleNo");
         String model       = req.getParameter("model");
         String color       = req.getParameter("color");
         String vehicleType = req.getParameter("vehicleType");
 
         // basic validation
         if (fullName == null || id == null || phone == null ||
-            model == null || color == null || vehicleType == null) {
+            vehicleNo == null || model == null || color == null || vehicleType == null) {
             req.setAttribute("error", "All fields are required");
             req.getRequestDispatcher("/register.jsp").forward(req, res);
             return;
@@ -112,6 +114,12 @@ public class UserController extends HttpServlet {
 
         if (userService.isPhoneTaken(phone.trim())) {
             req.setAttribute("error", "Phone number already registered");
+            req.getRequestDispatcher("/register.jsp").forward(req, res);
+            return;
+        }
+
+        if (userService.isVehicleNoTaken(vehicleNo.trim())) {
+            req.setAttribute("error", "Vehicle number already registered");
             req.getRequestDispatcher("/register.jsp").forward(req, res);
             return;
         }
@@ -133,6 +141,7 @@ public class UserController extends HttpServlet {
 
         // insert vehicle
         Vehicle vehicle = new Vehicle();
+        vehicle.setVehicleNo(vehicleNo.trim().toUpperCase());
         vehicle.setUserId(userId);
         vehicle.setModel(model.trim());
         vehicle.setColor(color.trim());

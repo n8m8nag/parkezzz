@@ -1,8 +1,9 @@
-CREATE DATABASE IF NOT EXISTS ick_smart_park;
+DROP DATABASE IF EXISTS ick_smart_park;
+CREATE DATABASE ick_smart_park;
 USE ick_smart_park;
 
--- user table
-CREATE TABLE IF NOT EXISTS user (
+-- users table
+CREATE TABLE IF NOT EXISTS users (
     user_id    INT          PRIMARY KEY AUTO_INCREMENT,
     full_name  VARCHAR(100) NOT NULL,
     id         VARCHAR(50)  NOT NULL UNIQUE,
@@ -18,15 +19,15 @@ CREATE TABLE IF NOT EXISTS lot (
     vehicle_type  ENUM('Car', 'Motorcycle') NOT NULL
 );
 
--- vehicle. has fk to user
+-- vehicle. has fk to users
 CREATE TABLE IF NOT EXISTS vehicle (
-    vehicle_no    INT          PRIMARY KEY AUTO_INCREMENT,
+    vehicle_no    VARCHAR(20)  PRIMARY KEY,
     user_id       INT          NOT NULL,
     model         VARCHAR(100) NOT NULL,
     color         VARCHAR(50)  NOT NULL,
     vehicle_type  ENUM('Car', 'Motorcycle') NOT NULL,
     CONSTRAINT fk_vehicle_user
-        FOREIGN KEY (user_id) REFERENCES user(user_id)
+        FOREIGN KEY (user_id) REFERENCES users(user_id)
         ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -42,10 +43,10 @@ CREATE TABLE IF NOT EXISTS slot (
 
 -- record table. 3 fks dont ask me why
 CREATE TABLE IF NOT EXISTS record (
-    record_id    INT       PRIMARY KEY AUTO_INCREMENT,
-    slot_no      INT       NOT NULL,
-    vehicle_no   INT       NOT NULL,
-    user_id      INT       NOT NULL,
+    record_id    INT         PRIMARY KEY AUTO_INCREMENT,
+    slot_no      INT         NOT NULL,
+    vehicle_no   VARCHAR(20) NOT NULL,
+    user_id      INT         NOT NULL,
     action_type  ENUM('Enter', 'Exit') NOT NULL,
     action_time  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_record_slot
@@ -55,7 +56,7 @@ CREATE TABLE IF NOT EXISTS record (
         FOREIGN KEY (vehicle_no) REFERENCES vehicle(vehicle_no)
         ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_record_user
-        FOREIGN KEY (user_id) REFERENCES user(user_id)
+        FOREIGN KEY (user_id) REFERENCES users(user_id)
         ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -122,8 +123,8 @@ INSERT INTO slot (lot_id, slot_label) VALUES
 (5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available');
 
 -- test data
-INSERT INTO user (full_name, id, phone, user_type)
+INSERT INTO users (full_name, id, phone, user_type)
 VALUES ('Mishek Sambiu Limbu', 'NP01CP4A240016', '9800000000', 'Student');
 
-INSERT INTO vehicle (user_id, model, color, vehicle_type)
-VALUES (1, 'Honda Dio', 'Red', 'Motorcycle');
+INSERT INTO vehicle (vehicle_no, user_id, model, color, vehicle_type)
+VALUES ('BA1PA1234', 1, 'Honda Dio', 'Red', 'Motorcycle');

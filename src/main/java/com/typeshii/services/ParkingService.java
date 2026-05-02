@@ -26,7 +26,7 @@ public class ParkingService {
     }
 
     // enter - mark slot occupied and insert record
-    public boolean enterSlot(int slotNo, int vehicleNo, int userId) {
+    public boolean enterSlot(int slotNo, String vehicleNo, int userId) {
         boolean updated = slotDAO.updateSlotLabel(slotNo, "Occupied");
         if (updated) {
             Record record = new Record();
@@ -40,7 +40,7 @@ public class ParkingService {
     }
 
     // exit - mark slot available and insert exit record
-    public boolean exitSlot(int slotNo, int vehicleNo, int userId) {
+    public boolean exitSlot(int slotNo, String vehicleNo, int userId) {
         boolean updated = slotDAO.updateSlotLabel(slotNo, "Available");
         if (updated) {
             Record record = new Record();
@@ -54,7 +54,7 @@ public class ParkingService {
     }
 
     // reserve a slot
-    public boolean reserveSlot(int slotNo, int vehicleNo, int userId) {
+    public boolean reserveSlot(int slotNo, String vehicleNo, int userId) {
         boolean updated = slotDAO.updateSlotLabel(slotNo, "Reserved");
         if (updated) {
             Record record = new Record();
