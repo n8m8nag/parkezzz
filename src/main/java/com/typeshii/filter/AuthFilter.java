@@ -22,3 +22,5 @@ public class AuthFilter implements Filter {
         } else {
             response.sendRedirect(request.getContextPath() + "/index.jsp");
         }
+    }
+}
