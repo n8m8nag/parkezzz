@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.List;
 
 // handles slot operations - occupy reserve exit
-@WebServlet("/slot/*")
+
 public class SlotController extends HttpServlet {
 
     private ParkingService parkingService = new ParkingService();

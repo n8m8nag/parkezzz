@@ -31,4 +31,11 @@
     </div>
 </div>
 </body>
-</html></html>
+</html>
+<%
+    String error = (String) session.getAttribute("error");
+    if (error != null) {
+        session.removeAttribute("error");
+%>
+    <p class="error-msg"><%= error %></p>
+<% } %>

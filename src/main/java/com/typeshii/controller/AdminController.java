@@ -8,7 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import java.io.IOException;
 
 // handles all admin side requests
-@WebServlet("/admin/*")
+
 public class AdminController extends HttpServlet {
 
     private ParkingService parkingService = new ParkingService();
@@ -74,10 +74,15 @@ public class AdminController extends HttpServlet {
             throws ServletException, IOException {
 
         String adminKey = req.getParameter("adminKey");
+        
+        // debug - print what we're receiving
+        System.out.println("Received key: [" + adminKey + "]");
+        System.out.println("Stored key: [" + ADMIN_KEY + "]");
+        System.out.println("Match: " + ADMIN_KEY.equals(adminKey != null ? adminKey.trim() : ""));
 
         if (adminKey == null || adminKey.trim().isEmpty()) {
-            req.setAttribute("error", "Please enter admin key");
-            req.getRequestDispatcher("/adminLogin.jsp").forward(req, res);
+            req.getSession().setAttribute("error", "Please enter admin key");
+            res.sendRedirect(req.getContextPath() + "/adminLogin.jsp");
             return;
         }
 
@@ -85,8 +90,8 @@ public class AdminController extends HttpServlet {
             req.getSession().setAttribute("loggedInAdmin", "admin");
             res.sendRedirect(req.getContextPath() + "/admin/dashboard");
         } else {
-            req.setAttribute("error", "Invalid admin key");
-            req.getRequestDispatcher("/adminLogin.jsp").forward(req, res);
+            req.getSession().setAttribute("error", "Invalid admin key");
+            res.sendRedirect(req.getContextPath() + "/adminLogin.jsp");
         }
     }
 

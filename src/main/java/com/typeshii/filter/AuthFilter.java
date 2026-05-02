@@ -15,7 +15,17 @@ public class AuthFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) res;
         HttpSession session = request.getSession(false);
 
-        boolean loggedIn = session != null && session.getAttribute("loggedInUser") != null;
+        String path = request.getServletPath() +
+            (request.getPathInfo() != null ? request.getPathInfo() : "");
+
+        // allow login and register through without session check
+        if (path.equals("/user/login") || path.equals("/user/register")) {
+            chain.doFilter(req, res);
+            return;
+        }
+
+        boolean loggedIn = session != null && 
+                           session.getAttribute("loggedInUser") != null;
 
         if (loggedIn) {
             chain.doFilter(req, res);

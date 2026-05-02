@@ -15,7 +15,17 @@ public class AdminFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) res;
         HttpSession session = request.getSession(false);
 
-        boolean isAdmin = session != null && session.getAttribute("loggedInAdmin") != null;
+        String path = request.getServletPath() + 
+            (request.getPathInfo() != null ? request.getPathInfo() : "");
+
+        // allow login request through without session check
+        if (path.equals("/admin/login")) {
+            chain.doFilter(req, res);
+            return;
+        }
+
+        boolean isAdmin = session != null && 
+                          session.getAttribute("loggedInAdmin") != null;
 
         if (isAdmin) {
             chain.doFilter(req, res);

@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.List;
 
 // handles all user side requests
-@WebServlet("/user/*")
+
 public class UserController extends HttpServlet {
 
     private UserService userService = new UserService();
