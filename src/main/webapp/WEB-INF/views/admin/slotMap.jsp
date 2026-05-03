@@ -42,7 +42,7 @@
                 <h2>Slot Map</h2>
                 <p class="sub">Visual Slot editor</p>
             </div>
-            <span class="admin-badge">Admin</span>
+            <a href="${pageContext.request.contextPath}/admin/logout" class="btn-logout">Logout</a>
         </div>
 
         <%-- lot + type filter --%>

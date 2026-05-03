@@ -228,6 +228,22 @@
 
 .btn-outline:hover { background: #1e2530; }
 
+/* logout button */
+.btn-logout {
+    padding: 6px 18px;
+    background: #7f1d1d;
+    color: #fca5a5;
+    border-radius: 6px;
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.btn-logout:hover {
+    background: #991b1b;
+    color: #fff;
+}
+
 /* users page */
 .search-bar {
     margin-bottom: 20px;

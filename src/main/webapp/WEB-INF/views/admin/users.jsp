@@ -40,7 +40,7 @@
                 <h2>Users</h2>
                 <p class="sub">Manage Students Accounts</p>
             </div>
-            <span class="admin-badge">Admin</span>
+            <a href="${pageContext.request.contextPath}/admin/logout" class="btn-logout">Logout</a>
         </div>
 
         <%-- search bar --%>

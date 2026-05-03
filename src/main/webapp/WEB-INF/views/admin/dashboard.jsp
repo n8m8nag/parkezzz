@@ -40,7 +40,7 @@
                 <h2>Dashboard</h2>
                 <p class="sub">Overview</p>
             </div>
-            <span class="admin-badge">Admin</span>
+            <a href="${pageContext.request.contextPath}/admin/logout" class="btn-logout">Logout</a>
         </div>
 
         <%-- stat cards --%>
