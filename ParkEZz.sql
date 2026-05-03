@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS ick_smart_park;
-CREATE DATABASE ick_smart_park;
-USE ick_smart_park;
+DROP DATABASE IF EXISTS ParkEZz;
+CREATE DATABASE ParkEZz;
+USE ParkEZz;
 
 -- users table
 CREATE TABLE IF NOT EXISTS users (

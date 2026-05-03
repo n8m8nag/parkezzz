@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 // db connection util - everyone uses this
 public class DBConnection {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/ick_smart_park?useSSL=false&serverTimezone=UTC";
+    private static final String URL = "jdbc:mysql://localhost:3306/ParkEZz?useSSL=false&serverTimezone=UTC";
     private static final String USER = "root";
     private static final String PASSWORD = ""; // xampp default is empty
 
