@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ICK Smart Park</title>
+    <title>ParkEZz</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
 </head>
 <body>
@@ -26,14 +26,17 @@
             <div class="logo-box">
                 <div class="logo-icon">P</div>
                 <div class="logo-text">
-                    <span class="logo-ick">ICK</span>
-                    <span class="logo-sub">Smart park</span>
+                    <span class="logo-ick">Park</span>
+                    <span class="logo-sub">EZz</span>
                 </div>
             </div>
         </div>
     </div>
     <a href="${pageContext.request.contextPath}/register.jsp" class="btn-register">
         Register Your Vehicle
+    </a>
+    <a href="${pageContext.request.contextPath}/adminLogin.jsp" class="btn-admin">
+        Admin Login
     </a>
 </div>
 </body>

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Register - ICK Smart Park</title>
+    <title>Register - ParkEZz</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
 </head>
 <body>

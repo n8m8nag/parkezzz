@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Find a Slot - ICK Smart Park</title>
+    <title>Find a Slot - ParkEZz</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/slotGrid.css">
 </head>

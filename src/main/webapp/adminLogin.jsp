@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Admin Login - ICK Smart Park</title>
+    <title>Admin Login - ParkEZz</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
 </head>
 <body>
@@ -23,12 +23,15 @@
             <div class="logo-box">
                 <div class="logo-icon">P</div>
                 <div class="logo-text">
-                    <span class="logo-ick">ICK</span>
-                    <span class="logo-sub">Smart park</span>
+                    <span class="logo-ick">Park</span>
+                    <span class="logo-sub">EZz</span>
                 </div>
             </div>
         </div>
     </div>
+    <a href="${pageContext.request.contextPath}/index.jsp" class="btn-admin">
+        Back to User Login
+    </a>
 </div>
 </body>
 </html>

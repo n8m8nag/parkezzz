@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Not Found - ICK Smart Park</title>
+    <title>Not Found - ParkEZz</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {

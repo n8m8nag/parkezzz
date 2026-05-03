@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="3.1">
 
-    <display-name>ICK Smart Park</display-name>
+    <display-name>ParkEZz</display-name>
 
     <session-config>
         <session-timeout>30</session-timeout>

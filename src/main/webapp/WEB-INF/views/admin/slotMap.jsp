@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Slot Map - ICK Smart Park</title>
+    <title>Slot Map - ParkEZz</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/dashboard.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/slotGrid.css">
@@ -17,7 +17,7 @@
     <%-- sidebar --%>
     <div class="sidebar">
         <div class="sidebar-brand">
-            <span class="brand-title">ICK</span>
+            <span class="brand-title">ParkEZz</span>
             <span class="brand-sub">College Parking</span>
         </div>
         <p class="sidebar-section">Main</p>

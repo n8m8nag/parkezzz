@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Error - ICK Smart Park</title>
+    <title>Error - ParkEZz</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {

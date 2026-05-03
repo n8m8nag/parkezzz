@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dashboard - ICK Smart Park</title>
+    <title>Dashboard - ParkEZz</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/dashboard.css">
 </head>
@@ -14,7 +14,7 @@
     <%-- sidebar --%>
     <div class="sidebar">
         <div class="sidebar-brand">
-            <span class="brand-title">ICK</span>
+            <span class="brand-title">ParkEZz</span>
             <span class="brand-sub">College Parking</span>
         </div>
         <p class="sidebar-section">Main</p>
