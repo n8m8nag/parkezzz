@@ -4,7 +4,9 @@ import com.typeshii.model.Vehicle;
 import com.typeshii.util.DBConnection;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 // handles all db stuff for vehicle table
 public class VehicleDAO {
@@ -41,6 +43,25 @@ public class VehicleDAO {
             System.err.println("VehicleDAO.getVehiclesByUser error: " + e.getMessage());
         }
         return vehicles;
+    }
+
+    // get first vehicle_no per user - bulk fetch for admin users page
+    public Map<Integer, String> getVehicleNoMapByUser() {
+        Map<Integer, String> map = new HashMap<>();
+        String sql = "SELECT user_id, vehicle_no FROM vehicle";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int uid = rs.getInt("user_id");
+                if (!map.containsKey(uid)) {
+                    map.put(uid, rs.getString("vehicle_no"));
+                }
+            }
+        } catch (Exception e) {
+            System.err.println("VehicleDAO.getVehicleNoMapByUser error: " + e.getMessage());
+        }
+        return map;
     }
 
     // insert new vehicle

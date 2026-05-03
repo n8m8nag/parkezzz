@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Map" %>
 <%@ page import="com.typeshii.model.User" %>
 <!DOCTYPE html>
 <html>
@@ -44,7 +45,7 @@
 
         <%-- search bar --%>
         <form method="get" action="${pageContext.request.contextPath}/admin/users" class="search-bar">
-            <input type="text" name="search" placeholder="Search by Student ID..."
+            <input type="text" name="search" placeholder="Search by Vehicle Number..."
                    value="<%= request.getParameter("search") != null ? request.getParameter("search") : "" %>"/>
         </form>
 
@@ -52,22 +53,28 @@
         <div class="user-list">
             <%
                 List<User> users = (List<User>) request.getAttribute("users");
-                if (users != null) {
+                Map<Integer, String> vehicleMap = (Map<Integer, String>) request.getAttribute("vehicleMap");
+                if (users != null && !users.isEmpty()) {
                     for (User user : users) {
                         String initials = user.getFullName().length() >= 2 ?
                             user.getFullName().substring(0, 2).toUpperCase() : "??";
-                        String statusClass = "badge-active";
+                        String vehicleNo = (vehicleMap != null && vehicleMap.containsKey(user.getUserId()))
+                            ? vehicleMap.get(user.getUserId()) : "N/A";
             %>
             <div class="user-card">
-                <div class="user-avatar"><%= initials %></div>
+                <div class="avatar-circle user-avatar-lg"><%= initials %></div>
                 <div class="user-info">
                     <p class="user-name"><%= user.getFullName() %></p>
                     <p class="user-meta">ID: <%= user.getId() %> &nbsp;|&nbsp; Ph: <%= user.getPhone() %></p>
                 </div>
-                <span class="status-badge <%= statusClass %>">Active</span>
+                <span class="vehicle-tag"><%= vehicleNo %></span>
             </div>
             <%
                     }
+                } else {
+            %>
+            <p class="no-results">No users found.</p>
+            <%
                 }
             %>
         </div>

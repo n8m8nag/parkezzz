@@ -5,6 +5,7 @@ import com.typeshii.dao.VehicleDAO;
 import com.typeshii.model.User;
 import com.typeshii.model.Vehicle;
 import java.util.List;
+import java.util.Map;
 
 // business logic for user stuff
 public class UserService {
@@ -42,6 +43,16 @@ public class UserService {
     // get all users for admin page
     public List<User> getAllUsers() {
         return userDAO.getAllUsers();
+    }
+
+    // search users by vehicle number
+    public List<User> getUsersByVehicleNo(String vehicleNo) {
+        return userDAO.getUsersByVehicleNo(vehicleNo);
+    }
+
+    // get userId -> vehicleNo map for bulk display
+    public Map<Integer, String> getVehicleNoMap() {
+        return vehicleDAO.getVehicleNoMapByUser();
     }
 
     // get vehicles belonging to a user

@@ -78,6 +78,23 @@ public class UserDAO {
         return -1;
     }
 
+    // get users filtered by vehicle number - for admin search
+    public List<User> getUsersByVehicleNo(String vehicleNo) {
+        List<User> users = new ArrayList<>();
+        String sql = "SELECT u.* FROM users u INNER JOIN vehicle v ON u.user_id = v.user_id WHERE v.vehicle_no LIKE ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, "%" + vehicleNo + "%");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                users.add(mapUser(rs));
+            }
+        } catch (Exception e) {
+            System.err.println("UserDAO.getUsersByVehicleNo error: " + e.getMessage());
+        }
+        return users;
+    }
+
     // get all users - for admin users page
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<>();

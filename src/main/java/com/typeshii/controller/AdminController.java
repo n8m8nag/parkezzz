@@ -1,11 +1,13 @@
 package com.typeshii.controller;
 
+import com.typeshii.model.User;
 import com.typeshii.services.ParkingService;
 import com.typeshii.services.UserService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.WebServlet;
 import java.io.IOException;
+import java.util.List;
 
 // handles all admin side requests
 
@@ -39,7 +41,15 @@ public class AdminController extends HttpServlet {
                 req.getRequestDispatcher("/WEB-INF/views/admin/slotMap.jsp").forward(req, res);
                 break;
             case "/users":
-                req.setAttribute("users", userService.getAllUsers());
+                String search = req.getParameter("search");
+                List<User> users;
+                if (search != null && !search.trim().isEmpty()) {
+                    users = userService.getUsersByVehicleNo(search.trim());
+                } else {
+                    users = userService.getAllUsers();
+                }
+                req.setAttribute("users", users);
+                req.setAttribute("vehicleMap", userService.getVehicleNoMap());
                 req.getRequestDispatcher("/WEB-INF/views/admin/users.jsp").forward(req, res);
                 break;
             case "/logout":
