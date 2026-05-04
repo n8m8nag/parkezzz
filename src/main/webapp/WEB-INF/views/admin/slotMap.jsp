@@ -209,6 +209,7 @@
                 <p class="popup-slot-label">Slot <%= selectedSlot.getSlotNo() %></p>
                 <form method="post" action="${pageContext.request.contextPath}/slot/enter">
                     <input type="hidden" name="slotNo" value="<%= selectedSlot.getSlotNo() %>"/>
+                    <input type="hidden" name="lotId" value="<%= selectedSlot.getLotId() %>"/>
                     <label>Enter Vehicle Number</label>
                     <input type="text" name="vehicleNo" placeholder="Vehicle No" required/>
                     <input type="hidden" name="userId" value="1"/>
@@ -244,6 +245,7 @@
                 <p class="popup-value"><%= dispPhone %></p>
                 <form method="post" action="${pageContext.request.contextPath}/slot/exit">
                     <input type="hidden" name="slotNo" value="<%= selectedSlot.getSlotNo() %>"/>
+                    <input type="hidden" name="lotId" value="<%= selectedSlot.getLotId() %>"/>
                     <input type="hidden" name="vehicleNo" value="<%= formVehicleNo %>"/>
                     <input type="hidden" name="userId" value="<%= formUserId %>"/>
                     <button type="submit" class="btn-clear">Clear</button>

@@ -56,12 +56,15 @@ public class SlotController extends HttpServlet {
                 break;
         }
 
+        String lotId = req.getParameter("lotId");
+        String lotParam = (lotId != null && !lotId.isEmpty()) ? "?lotId=" + lotId : "";
+
         HttpSession session = req.getSession(false);
         boolean isAdmin = session != null && session.getAttribute("loggedInAdmin") != null;
         if (isAdmin) {
-            res.sendRedirect(req.getContextPath() + "/admin/slotMap");
+            res.sendRedirect(req.getContextPath() + "/admin/slotMap" + lotParam);
         } else {
-            res.sendRedirect(req.getContextPath() + "/user/findSlot");
+            res.sendRedirect(req.getContextPath() + "/user/findSlot" + lotParam);
         }
     }
 }

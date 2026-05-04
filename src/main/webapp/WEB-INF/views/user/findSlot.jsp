@@ -9,6 +9,7 @@
 <head>
     <title>Find a Slot - ParkEZz</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/dashboard.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/slotGrid.css">
 </head>
 <body>
@@ -21,7 +22,7 @@
             <p class="sub">Select a slot to reserve or occupy</p>
         </div>
         <div class="header-right">
-            <a href="${pageContext.request.contextPath}/user/logout" class="btn-outline">Logout</a>
+            <a href="${pageContext.request.contextPath}/user/logout" class="btn-logout">Logout</a>
         </div>
     </div>
 
@@ -187,6 +188,7 @@
             <p class="popup-slot-label">Slot <%= selectedSlot.getSlotNo() %></p>
             <form method="post" action="${pageContext.request.contextPath}/slot/enter">
                 <input type="hidden" name="slotNo" value="<%= selectedSlot.getSlotNo() %>"/>
+                <input type="hidden" name="lotId" value="<%= selectedSlot.getLotId() %>"/>
                 <input type="hidden" name="vehicleNo" value="<%= sessionVehicleNo != null ? sessionVehicleNo : "" %>"/>
                 <input type="hidden" name="userId" value="<%= loggedInUser != null ? loggedInUser.getUserId() : 0 %>"/>
                 <label>Vehicle No</label>
@@ -218,6 +220,7 @@
             <p class="popup-value"><%= activeRecord.getPhone() %></p>
             <form method="post" action="${pageContext.request.contextPath}/slot/exit">
                 <input type="hidden" name="slotNo" value="<%= selectedSlot.getSlotNo() %>"/>
+                <input type="hidden" name="lotId" value="<%= selectedSlot.getLotId() %>"/>
                 <input type="hidden" name="vehicleNo" value="<%= activeRecord.getVehicleNo() %>"/>
                 <input type="hidden" name="userId" value="<%= activeRecord.getUserId() %>"/>
                 <button type="submit" class="btn-clear">Clear</button>

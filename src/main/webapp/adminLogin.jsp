@@ -1,44 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<%
+    String error = (String) session.getAttribute("error");
+    if (error != null) session.removeAttribute("error");
+%>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Admin Login - ParkEZz</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css?v=1.1">
 </head>
 <body>
+
 <div class="auth-wrapper">
     <div class="auth-box">
         <div class="auth-left">
             <h2>Admin Login</h2>
-            <% if (request.getAttribute("error") != null) { %>
-                <p class="error-msg">${error}</p>
+
+            <% if (error != null) { %>
+                <p class="error-msg"><%= error %></p>
             <% } %>
-            <form action="${pageContext.request.contextPath}/admin/login" method="post">
+
+            <form id="adminForm" action="${pageContext.request.contextPath}/admin/login" method="post">
                 <label>Admin Key</label>
                 <input type="password" name="adminKey" placeholder="Enter Admin Key" required/>
-                <button type="submit" class="btn-blue">Sign In</button>
+
+                <div class="button-container">
+                    <button type="submit" class="btn-blue full-width">Sign In</button>
+
+                    <a href="${pageContext.request.contextPath}/index.jsp" class="btn-admin full-width">
+                        Back to User Login
+                    </a>
+                </div>
             </form>
         </div>
+
         <div class="auth-right">
-            <div class="logo-box">
-                <div class="logo-icon">P</div>
-                <div class="logo-text">
-                    <span class="logo-ick">Park</span>
-                    <span class="logo-sub">EZz</span>
-                </div>
+            <div class="logo-container">
+                <img src="${pageContext.request.contextPath}/logo/logo.png" alt="ParkEZz Logo" class="main-logo">
             </div>
         </div>
     </div>
-    <a href="${pageContext.request.contextPath}/index.jsp" class="btn-admin">
-        Back to User Login
-    </a>
 </div>
+
 </body>
 </html>
-<%
-    String error = (String) session.getAttribute("error");
-    if (error != null) {
-        session.removeAttribute("error");
-%>
-    <p class="error-msg"><%= error %></p>
-<% } %>
