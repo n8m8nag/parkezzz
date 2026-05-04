@@ -32,8 +32,8 @@ public class RecordDAO {
         String sql =
             "SELECT r.*, u.full_name, u.phone, v.model, v.color " +
             "FROM record r " +
-            "JOIN users u ON r.user_id = u.user_id " +
-            "JOIN vehicle v ON r.vehicle_no = v.vehicle_no " +
+            "LEFT JOIN users u ON r.user_id = u.user_id " +
+            "LEFT JOIN vehicle v ON r.vehicle_no = v.vehicle_no " +
             "WHERE r.slot_no = ? AND r.action_type = 'Enter' " +
             "ORDER BY r.action_time DESC LIMIT 1";
         try (Connection conn = DBConnection.getConnection();

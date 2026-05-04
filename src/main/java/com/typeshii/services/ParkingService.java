@@ -25,6 +25,11 @@ public class ParkingService {
         return slotDAO.getSlotsByLot(lotId);
     }
 
+    // get single slot by slot_no
+    public Slot getSlotById(int slotNo) {
+        return slotDAO.getSlotById(slotNo);
+    }
+
     // enter - mark slot occupied and insert record
     public boolean enterSlot(int slotNo, String vehicleNo, int userId) {
         boolean updated = slotDAO.updateSlotLabel(slotNo, "Occupied");

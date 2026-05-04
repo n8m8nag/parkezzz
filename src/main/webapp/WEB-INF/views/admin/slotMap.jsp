@@ -51,6 +51,7 @@
                 <%
                     List<Lot> lots = (List<Lot>) request.getAttribute("lots");
                     String selectedLotId = request.getParameter("lotId");
+                    if (selectedLotId == null) selectedLotId = (String) request.getAttribute("selectedLotId");
                     if (lots != null) {
                         for (Lot lot : lots) {
                             String selected = (selectedLotId != null &&
@@ -64,39 +65,132 @@
                     }
                 %>
             </select>
-            <div class="type-toggle">
-                <button type="submit" name="vehicleType" value="Motorcycle"
-                    class="toggle-btn <%= "Motorcycle".equals(request.getParameter("vehicleType")) ? "active" : "" %>">
-                    Motorcycle
-                </button>
-                <button type="submit" name="vehicleType" value="Car"
-                    class="toggle-btn <%= "Car".equals(request.getParameter("vehicleType")) ? "active" : "" %>">
-                    Car
-                </button>
-            </div>
         </form>
 
         <%-- slot grid --%>
+        <%
+            List<Slot> slots = (List<Slot>) request.getAttribute("slots");
+
+            // resolve selected lot name for lane config
+            String selLotName = "";
+            String selLotId = request.getParameter("lotId");
+            if (selLotId == null) selLotId = (String) request.getAttribute("selectedLotId");
+            if (lots != null && selLotId != null) {
+                for (Lot l : lots) {
+                    if (selLotId.equals(String.valueOf(l.getLotId()))) {
+                        selLotName = l.getLotName();
+                        break;
+                    }
+                }
+            }
+
+            // lane groups per lot: each int[] is one group; 1 element = single lane, 2 = back-to-back pair
+            int[][] laneGroups = null;
+            if ("Skill - Motorcycle".equals(selLotName)) {
+                laneGroups = new int[][]{
+                    {54},
+                    {54, 54},
+                    {54, 54},
+                    {65},
+                    {30}
+                };
+            } else if ("Himal - Motorcycle".equals(selLotName)) {
+                laneGroups = new int[][]{
+                    {15},
+                    {18, 18},
+                    {18},
+                    {3}
+                };
+            } else if ("Kumari - Car".equals(selLotName)) {
+                laneGroups = new int[][]{
+                    {6},
+                    {4},
+                    {1},
+                    {2},
+                    {4},
+                    {12},
+                    {12}
+                };
+            } else if ("Kumari - Motorcycle".equals(selLotName)) {
+                laneGroups = new int[][]{
+                    {50, 50},
+                    {50, 50},
+                    {50, 50},
+                    {40},
+                    {15}
+                };
+            } else if ("Skill - Car".equals(selLotName)) {
+                laneGroups = new int[][]{
+                    {15, 15},
+                    {15, 15},
+                    {8},
+                    {8},
+                    {6, 6},
+                    {8}
+                };
+            }
+
+            if (slots != null && laneGroups != null) {
+        %>
+        <div class="slot-grid-lanes">
+            <%
+                int slotIdx = 0;
+                for (int[] group : laneGroups) {
+                    boolean isPair = group.length == 2;
+            %>
+            <div class="slot-lane-group <%= isPair ? "slot-lane-pair" : "" %>">
+                <%
+                    for (int laneSize : group) {
+                %>
+                <div class="slot-lane">
+                    <%
+                        for (int i = 0; i < laneSize && slotIdx < slots.size(); i++, slotIdx++) {
+                            Slot slot = slots.get(slotIdx);
+                            String label = slot.getSlotLabel();
+                            String cssClass = "slot-box ";
+                            if ("Occupied".equals(label)) cssClass += "slot-occupied";
+                            else if ("Reserved".equals(label)) cssClass += "slot-reserved";
+                            else cssClass += "slot-available";
+                    %>
+                    <a href="${pageContext.request.contextPath}/admin/slotDetail?slotNo=<%= slot.getSlotNo() %>"
+                       class="<%= cssClass %>">
+                        <%= slot.getSlotNo() %>
+                    </a>
+                    <%
+                        }
+                    %>
+                </div>
+                <%
+                    }
+                %>
+            </div>
+            <%
+                }
+            %>
+        </div>
+        <%
+            } else if (slots != null) {
+        %>
         <div class="slot-grid">
             <%
-                List<Slot> slots = (List<Slot>) request.getAttribute("slots");
-                if (slots != null) {
-                    for (Slot slot : slots) {
-                        String label = slot.getSlotLabel();
-                        String cssClass = "slot-box ";
-                        if ("Occupied".equals(label)) cssClass += "slot-occupied";
-                        else if ("Reserved".equals(label)) cssClass += "slot-reserved";
-                        else cssClass += "slot-available";
+                for (Slot slot : slots) {
+                    String label = slot.getSlotLabel();
+                    String cssClass = "slot-box ";
+                    if ("Occupied".equals(label)) cssClass += "slot-occupied";
+                    else if ("Reserved".equals(label)) cssClass += "slot-reserved";
+                    else cssClass += "slot-available";
             %>
                 <a href="${pageContext.request.contextPath}/admin/slotDetail?slotNo=<%= slot.getSlotNo() %>"
                    class="<%= cssClass %>">
                     <%= slot.getSlotNo() %>
                 </a>
             <%
-                    }
                 }
             %>
         </div>
+        <%
+            }
+        %>
 
         <%-- legend --%>
         <div class="legend">
@@ -132,22 +226,26 @@
         <%-- popup for occupied/reserved slot --%>
         <%
             Record activeRecord = (Record) request.getAttribute("activeRecord");
-            if (selectedSlot != null && !"Available".equals(selectedSlot.getSlotLabel())
-                && activeRecord != null) {
+            if (selectedSlot != null && !"Available".equals(selectedSlot.getSlotLabel())) {
+                String dispVehicleNo = activeRecord != null ? activeRecord.getVehicleNo() : "—";
+                String dispName      = activeRecord != null && activeRecord.getFullName() != null ? activeRecord.getFullName() : "Unregistered";
+                String dispPhone     = activeRecord != null && activeRecord.getPhone() != null ? activeRecord.getPhone() : "—";
+                String formVehicleNo = activeRecord != null ? activeRecord.getVehicleNo() : "";
+                int    formUserId    = activeRecord != null ? activeRecord.getUserId() : 0;
         %>
         <div class="popup-overlay">
             <div class="popup-box">
                 <p class="popup-slot-label">Slot <%= selectedSlot.getSlotNo() %></p>
                 <p class="popup-label">Vehicle No</p>
-                <p class="popup-value"><%= activeRecord.getVehicleNo() %></p>
+                <p class="popup-value"><%= dispVehicleNo %></p>
                 <p class="popup-label">Name</p>
-                <p class="popup-value"><%= activeRecord.getFullName() %></p>
+                <p class="popup-value"><%= dispName %></p>
                 <p class="popup-label">Phone</p>
-                <p class="popup-value"><%= activeRecord.getPhone() %></p>
+                <p class="popup-value"><%= dispPhone %></p>
                 <form method="post" action="${pageContext.request.contextPath}/slot/exit">
                     <input type="hidden" name="slotNo" value="<%= selectedSlot.getSlotNo() %>"/>
-                    <input type="hidden" name="vehicleNo" value="<%= activeRecord.getVehicleNo() %>"/>
-                    <input type="hidden" name="userId" value="<%= activeRecord.getUserId() %>"/>
+                    <input type="hidden" name="vehicleNo" value="<%= formVehicleNo %>"/>
+                    <input type="hidden" name="userId" value="<%= formUserId %>"/>
                     <button type="submit" class="btn-clear">Clear</button>
                 </form>
                 <a href="${pageContext.request.contextPath}/admin/slotMap" class="btn-close">✕</a>

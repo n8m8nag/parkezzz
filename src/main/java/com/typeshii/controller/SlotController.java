@@ -40,7 +40,9 @@ public class SlotController extends HttpServlet {
 
         int slotNo       = Integer.parseInt(req.getParameter("slotNo"));
         String vehicleNo = req.getParameter("vehicleNo");
-        int userId       = Integer.parseInt(req.getParameter("userId"));
+        if (vehicleNo == null) vehicleNo = "";
+        String userIdStr = req.getParameter("userId");
+        int userId = (userIdStr != null && !userIdStr.isEmpty()) ? Integer.parseInt(userIdStr) : 0;
 
         switch (path) {
             case "/enter":
@@ -54,6 +56,12 @@ public class SlotController extends HttpServlet {
                 break;
         }
 
-        res.sendRedirect(req.getContextPath() + "/user/findSlot");
+        HttpSession session = req.getSession(false);
+        boolean isAdmin = session != null && session.getAttribute("loggedInAdmin") != null;
+        if (isAdmin) {
+            res.sendRedirect(req.getContextPath() + "/admin/slotMap");
+        } else {
+            res.sendRedirect(req.getContextPath() + "/user/findSlot");
+        }
     }
 }

@@ -37,7 +37,33 @@ public class AdminController extends HttpServlet {
                 req.getRequestDispatcher("/WEB-INF/views/admin/dashboard.jsp").forward(req, res);
                 break;
             case "/slotMap":
-                req.setAttribute("lots", parkingService.getAllLots());
+                java.util.List<com.typeshii.model.Lot> allLots = parkingService.getAllLots();
+                req.setAttribute("lots", allLots);
+                String lotIdParam = req.getParameter("lotId");
+                if (lotIdParam == null && !allLots.isEmpty()) {
+                    lotIdParam = String.valueOf(allLots.get(0).getLotId());
+                }
+                if (lotIdParam != null) {
+                    req.setAttribute("slots", parkingService.getSlotsByLot(Integer.parseInt(lotIdParam)));
+                    req.setAttribute("selectedLotId", lotIdParam);
+                }
+                req.getRequestDispatcher("/WEB-INF/views/admin/slotMap.jsp").forward(req, res);
+                break;
+            case "/slotDetail":
+                String slotNoParam = req.getParameter("slotNo");
+                if (slotNoParam != null) {
+                    int slotNo = Integer.parseInt(slotNoParam);
+                    com.typeshii.model.Slot selectedSlot = parkingService.getSlotById(slotNo);
+                    req.setAttribute("selectedSlot", selectedSlot);
+                    if (selectedSlot != null) {
+                        req.setAttribute("lots", parkingService.getAllLots());
+                        req.setAttribute("slots", parkingService.getSlotsByLot(selectedSlot.getLotId()));
+                        req.setAttribute("selectedLotId", String.valueOf(selectedSlot.getLotId()));
+                        if (!"Available".equals(selectedSlot.getSlotLabel())) {
+                            req.setAttribute("activeRecord", parkingService.getActiveRecord(slotNo));
+                        }
+                    }
+                }
                 req.getRequestDispatcher("/WEB-INF/views/admin/slotMap.jsp").forward(req, res);
                 break;
             case "/users":

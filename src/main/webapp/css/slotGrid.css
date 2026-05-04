@@ -8,6 +8,46 @@
     padding: 20px 0;
 }
 
+/* lane-based grid (lots with defined lane layout) */
+.slot-grid-lanes {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 0;
+    overflow-x: auto;
+}
+
+.slot-lane-group {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+}
+
+.slot-lane-pair {
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 6px;
+    background: rgba(51, 65, 85, 0.15);
+    position: relative;
+}
+
+.slot-lane-pair::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: #334155;
+}
+
+.slot-lane {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
 .slot-box {
     width: 48px;
     height: 48px;
@@ -106,6 +146,13 @@
     background: #fff;
     color: #0d1117;
     border-radius: 20px;
+}
+
+/* user side wrapper (no sidebar) */
+.slot-page-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 24px;
 }
 
 /* slot header */
