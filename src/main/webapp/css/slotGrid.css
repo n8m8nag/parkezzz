@@ -1,5 +1,40 @@
 @charset "UTF-8";
 
+/* schematic overlay layout */
+.schematic-wrap {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+    margin: 16px 0;
+}
+
+.schematic-bg {
+    display: block;
+    width: 100%;
+    max-width: 980px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.schematic-slot {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 600;
+    border-radius: 3px;
+    border: 1.5px solid;
+    text-decoration: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: opacity 0.15s;
+}
+
+.schematic-slot:hover {
+    opacity: 0.75;
+}
+
 /* slot grid */
 .slot-grid {
     display: flex;

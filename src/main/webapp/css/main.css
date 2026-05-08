@@ -60,12 +60,13 @@ label {
 }
 
 .logo-container {
-    width: 420px;
-    height: 420px;
+    width: 630px;
+    height: 630px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 60px;
+    flex-shrink: 0;
 }
 
 .main-logo {
@@ -253,8 +254,8 @@ select {
     }
 
     .logo-container {
-        width: 250px;
-        height: 250px;
+        width: 375px;
+        height: 375px;
         margin-left: 0;
         margin-bottom: 20px;
     }

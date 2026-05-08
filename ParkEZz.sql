@@ -71,210 +71,124 @@ CREATE INDEX idx_record_time    ON record(action_time);
 
 -- lots
 INSERT INTO lot (lot_name, total_slots, vehicle_type) VALUES
-('Skill - Motorcycle', 365, 'Motorcycle'),
-('Skill - Car', 96, 'Car'),
-('Kumari - Motorcycle', 355, 'Motorcycle'),
+('Skill - Motorcycle', 105, 'Motorcycle'),
+('Skill - Car', 120, 'Car'),
+('Kumari - Motorcycle', 158, 'Motorcycle'),
 ('Kumari - Car', 41, 'Car'),
-('Himal - Motorcycle', 72, 'Motorcycle');
+('Himal - Motorcycle', 160, 'Motorcycle');
 
--- slots for skill - motorcycle (365): 7 lanes [54,54,54,54,54,65,30]
+-- slots for skill - motorcycle (105): 6 cols x 15 rows + 15 bottom
 INSERT INTO slot (lot_id, slot_label) VALUES
+-- col 1 left single (15)
 (1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
 (1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
 (1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
+-- col 2 left pair lane A (15)
 (1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
 (1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
 (1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
+-- col 3 left pair lane B (15)
 (1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
 (1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
 (1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
+-- col 4 right pair lane A (15)
 (1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
--- lane 2 (54)
 (1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
 (1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
+-- col 5 right pair lane B (15)
 (1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
 (1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
 (1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
+-- col 6 right single (15)
 (1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
 (1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
 (1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
--- lane 3 (54)
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
--- lane 4 (54)
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
--- lane 5 (54)
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
--- lane 6 (65)
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
--- lane 7 (30)
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
-(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
+-- bottom row (15)
 (1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
 (1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),
 (1,'Available'),(1,'Available'),(1,'Available'),(1,'Available'),(1,'Available');
 
--- skill - car (96): groups [15,15],[15,15],[8],[8],[6,6],[8]
+-- skill - car (120): 4 big cols x22 rows + 3 right boxes (6,6,4) x2 lanes
 INSERT INTO slot (lot_id, slot_label) VALUES
--- pair 1 lane A (15)
+-- left pair lane A (22)
 (2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),
 (2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),
 (2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),
--- pair 1 lane B (15)
+(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),
+(2,'Available'),(2,'Available'),
+-- left pair lane B (22)
 (2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),
 (2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),
 (2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),
--- pair 2 lane A (15)
+(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),
+(2,'Available'),(2,'Available'),
+-- middle pair lane A (22)
 (2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),
 (2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),
 (2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),
--- pair 2 lane B (15)
+(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),
+(2,'Available'),(2,'Available'),
+-- middle pair lane B (22)
 (2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),
 (2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),
 (2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),
--- single lane (8)
 (2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),
-(2,'Available'),(2,'Available'),(2,'Available'),
--- single lane (8)
-(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),
-(2,'Available'),(2,'Available'),(2,'Available'),
--- pair 3 lane A (6)
-(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),
-(2,'Available'),
--- pair 3 lane B (6)
-(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),
-(2,'Available'),
--- single lane (8)
-(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),
-(2,'Available'),(2,'Available'),(2,'Available');
+(2,'Available'),(2,'Available'),
+-- right box 1 lane A (6)
+(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),
+-- right box 1 lane B (6)
+(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),
+-- right box 2 lane A (6)
+(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),
+-- right box 2 lane B (6)
+(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),
+-- right box 3 lane A (4)
+(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available'),
+-- right box 3 lane B (4)
+(2,'Available'),(2,'Available'),(2,'Available'),(2,'Available');
 
--- kumari - motorcycle (355): groups [50,50],[50,50],[50,50],[40],[15]
+-- kumari - motorcycle (158): 3 pairs x 20x2 + single x 20 + bottom row x 18
 INSERT INTO slot (lot_id, slot_label) VALUES
--- pair 1 lane A (50)
+-- pair 1 lane A (20)
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
+-- pair 1 lane B (20)
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
+-- pair 2 lane A (20)
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
--- pair 1 lane B (50)
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
+-- pair 2 lane B (20)
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
+-- pair 3 lane A (20)
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
--- pair 2 lane A (50)
+-- pair 3 lane B (20)
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
+-- single column (20)
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
+-- bottom row (18)
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
--- pair 2 lane B (50)
 (3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
--- pair 3 lane A (50)
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
--- pair 3 lane B (50)
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
--- single lane (40)
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
--- single lane (15)
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),
-(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available'),(3,'Available');
+(3,'Available'),(3,'Available'),(3,'Available');
 
 -- kumari - car (41): singles [6],[4],[1],[2],[4],[12],[12]
 INSERT INTO slot (lot_id, slot_label) VALUES
@@ -298,29 +212,48 @@ INSERT INTO slot (lot_id, slot_label) VALUES
 (4,'Available'),(4,'Available'),(4,'Available'),(4,'Available'),(4,'Available'),
 (4,'Available'),(4,'Available');
 
--- himal - motorcycle (72): [15],[18,18],[18],[3]
+-- himal - motorcycle (160): 4 double-rows x 20 cols x 2 lanes
 INSERT INTO slot (lot_id, slot_label) VALUES
--- single lane (15)
+-- row 0 lane A (20)
 (5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
 (5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
 (5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
--- pair lane A (18)
+(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
+-- row 0 lane B (20)
 (5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
 (5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
 (5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
-(5,'Available'),(5,'Available'),(5,'Available'),
--- pair lane B (18)
+(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
+-- row 1 lane A (20)
 (5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
 (5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
 (5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
-(5,'Available'),(5,'Available'),(5,'Available'),
--- single lane (18)
+(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
+-- row 1 lane B (20)
 (5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
 (5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
 (5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
-(5,'Available'),(5,'Available'),(5,'Available'),
--- single lane (3)
-(5,'Available'),(5,'Available'),(5,'Available');
+(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
+-- row 2 lane A (20)
+(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
+(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
+(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
+(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
+-- row 2 lane B (20)
+(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
+(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
+(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
+(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
+-- row 3 lane A (20)
+(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
+(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
+(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
+(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
+-- row 3 lane B (20)
+(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
+(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
+(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),
+(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available'),(5,'Available');
 
 -- test data
 INSERT INTO users (full_name, id, phone, user_type)

@@ -2,7 +2,21 @@
   "permissions": {
     "allow": [
       "Bash(git -C \"C:\\\\Users\\\\Admin\\\\Desktop\\\\NAMAN WEBAPP\\\\basic-webapp\" status)",
-      "Bash(git -C \"C:\\\\Users\\\\Admin\\\\Desktop\\\\NAMAN WEBAPP\\\\basic-webapp\" remote -v)"
+      "Bash(git -C \"C:\\\\Users\\\\Admin\\\\Desktop\\\\NAMAN WEBAPP\\\\basic-webapp\" remote -v)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Admin\\\\Desktop\\\\NAMAN WEBAPP\\\\parkezzz\" -Force)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "mcp__Claude_in_Chrome__switch_browser",
+      "Bash(python -m http.server 7788)",
+      "Bash(echo \"PID: $!\")",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(kill 1932)",
+      "Bash(netstat -ano)",
+      "Bash(findstr :7788)",
+      "Bash(taskkill /PID 30312 /F)",
+      "Bash(start http://localhost:7799/preview_kumari_moto.html)",
+      "Bash(findstr :7799)",
+      "Bash(dir /s /b \"C:\\\\Users\\\\Admin\\\\Desktop\\\\NAMAN WEBAPP\\\\parkezzz\")",
+      "Bash(findstr /i \".svg\")"
     ]
   }
 }
