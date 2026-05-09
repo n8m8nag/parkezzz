@@ -13,7 +13,7 @@
                 <h2>Register Your Vehicle</h2>
                 <p class="register-sub">Personal and vehicle Information</p>
             </div>
-            <span class="badge-student">Student</span>
+            <span class="badge-student">User</span>
         </div>
         <% if (request.getAttribute("error") != null) { %>
             <p class="error-msg">${error}</p>

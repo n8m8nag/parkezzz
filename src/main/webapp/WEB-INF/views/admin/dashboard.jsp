@@ -94,7 +94,7 @@
                     <div class="bar-fill <%= barColor %>" style="width: <%= occPct %>%"></div>
                     <div class="bar-fill" style="width: <%= resPct %>%; background:#ca8a04;"></div>
                 </div>
-                <span class="lot-pct <%= barColor %>"><%= totalPct %>%</span>
+                <span ><%= totalPct %>%</span>
             </div>
             <%
                     }

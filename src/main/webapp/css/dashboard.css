@@ -90,7 +90,7 @@
 /* main content */
 .main-content {
     flex: 1;
-    padding: 28px 32px;
+    padding: 16px 20px;
     overflow-y: auto;
 }
 
@@ -183,12 +183,7 @@
 .bar-yellow { background: #ca8a04; }
 .bar-red    { background: #dc2626; }
 
-.lot-pct {
-    font-size: 12px;
-    font-weight: 500;
-    width: 36px;
-    text-align: right;
-}
+
 
 /* admin key section */
 .key-section {
@@ -249,11 +244,6 @@
     margin-bottom: 20px;
 }
 
-.search-bar input {
-    width: 100%;
-    max-width: 360px;
-    margin-bottom: 0;
-}
 
 .user-list {
     display: flex;
@@ -304,4 +294,14 @@
     font-size: 13px;
     color: #555;
     padding: 20px 0;
+}
+
+.search-bar {
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    width: 100%;
+    max-width: 360px;
+    margin-bottom: 0;
 }
