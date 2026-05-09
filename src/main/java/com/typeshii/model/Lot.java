@@ -7,6 +7,8 @@ public class Lot {
     private String lotName;
     private int totalSlots;
     private String vehicleType;
+    private int occupiedSlots;
+    private int reservedSlots;
 
     public Lot() {}
 
@@ -21,4 +23,10 @@ public class Lot {
 
     public String getVehicleType() { return vehicleType; }
     public void setVehicleType(String vehicleType) { this.vehicleType = vehicleType; }
+
+    public int getOccupiedSlots() { return occupiedSlots; }
+    public void setOccupiedSlots(int occupiedSlots) { this.occupiedSlots = occupiedSlots; }
+
+    public int getReservedSlots() { return reservedSlots; }
+    public void setReservedSlots(int reservedSlots) { this.reservedSlots = reservedSlots; }
 }

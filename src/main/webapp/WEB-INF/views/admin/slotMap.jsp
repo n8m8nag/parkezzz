@@ -324,6 +324,33 @@
         {54.7959,90.75,3.8776,6.5},{59.1837,90.75,3.8776,6.5},{63.5714,90.75,3.8776,6.5},{67.9592,90.75,3.8776,6.5},{72.3469,90.75,3.8776,6.5},
         {76.7347,90.75,3.8776,6.5},{81.1224,90.75,3.8776,6.5},{85.5102,90.75,3.8776,6.5},
     };
+
+    // ---- Kumari-Car: 41 slots (6+4+1+2+4+12+12) on 980x720 canvas ----
+    static final double[][] POS_KUMARI_CAR = {
+        // Group 1: 6 slots top row (y=52, h=52, w=85, step=93)
+        {5.6122,7.2222,8.6735,7.2222},{15.1020,7.2222,8.6735,7.2222},{24.5918,7.2222,8.6735,7.2222},
+        {34.0816,7.2222,8.6735,7.2222},{43.5714,7.2222,8.6735,7.2222},{53.0612,7.2222,8.6735,7.2222},
+        // Group 2: 4 slots second row (y=120, h=52, w=85)
+        {5.6122,16.6667,8.6735,7.2222},{15.1020,16.6667,8.6735,7.2222},
+        {24.5918,16.6667,8.6735,7.2222},{34.0816,16.6667,8.6735,7.2222},
+        // Group 3: 1 slot beside tree, second row (x=520, y=120, w=85, h=52)
+        {53.0612,16.6667,8.6735,7.2222},
+        // Group 4: 2 slots right column (x=880, w=70, h=52)
+        {89.7959,7.2222,7.1429,7.2222},{89.7959,16.6667,7.1429,7.2222},
+        // Group 5: 4 slots middle (x=200..479, y=265, h=52, w=85, step=93)
+        {20.4082,36.8056,8.6735,7.2222},{29.8980,36.8056,8.6735,7.2222},
+        {39.3878,36.8056,8.6735,7.2222},{48.8776,36.8056,8.6735,7.2222},
+        // Group 6: 12 slots bottom row A (y=460, h=50, w=65, step=73)
+        {3.2653,63.8889,6.6327,6.9444},{10.7143,63.8889,6.6327,6.9444},{18.1633,63.8889,6.6327,6.9444},
+        {25.6122,63.8889,6.6327,6.9444},{33.0612,63.8889,6.6327,6.9444},{40.5102,63.8889,6.6327,6.9444},
+        {47.9592,63.8889,6.6327,6.9444},{55.4082,63.8889,6.6327,6.9444},{62.8571,63.8889,6.6327,6.9444},
+        {70.3061,63.8889,6.6327,6.9444},{77.7551,63.8889,6.6327,6.9444},{85.2041,63.8889,6.6327,6.9444},
+        // Group 7: 12 slots bottom row B (y=534, h=50, w=65, step=73)
+        {3.2653,74.1667,6.6327,6.9444},{10.7143,74.1667,6.6327,6.9444},{18.1633,74.1667,6.6327,6.9444},
+        {25.6122,74.1667,6.6327,6.9444},{33.0612,74.1667,6.6327,6.9444},{40.5102,74.1667,6.6327,6.9444},
+        {47.9592,74.1667,6.6327,6.9444},{55.4082,74.1667,6.6327,6.9444},{62.8571,74.1667,6.6327,6.9444},
+        {70.3061,74.1667,6.6327,6.9444},{77.7551,74.1667,6.6327,6.9444},{85.2041,74.1667,6.6327,6.9444},
+    };
 %>
 <!DOCTYPE html>
 <html>
@@ -482,20 +509,28 @@
             <% } %>
         </div>
         <%
+            } else if ("Kumari - Car".equals(selLotName) && slots != null) {
+                double[][] slotPos = POS_KUMARI_CAR;
+        %>
+        <div class="schematic-wrap" style="position:relative;display:inline-block;max-width:100%;margin:16px 0;">
+            <img src="${pageContext.request.contextPath}/logo/schematic_kumari_car.svg" style="display:block;width:100%;max-width:980px;height:auto;border-radius:8px;" alt="Kumari Car Lot"/>
+            <%
+                for (int si = 0; si < slots.size() && si < slotPos.length; si++) {
+                    Slot slot = slots.get(si);
+                    String label = slot.getSlotLabel();
+                    String color = "Occupied".equals(label) ? "#dc2626" : "Reserved".equals(label) ? "#ca8a04" : "#16a34a";
+                    double[] p = slotPos[si];
+            %>
+            <a href="${pageContext.request.contextPath}/admin/slotDetail?slotNo=<%= slot.getSlotNo() %>"
+               style="position:absolute;left:<%= String.format("%.4f", p[0]) %>%;top:<%= String.format("%.4f", p[1]) %>%;width:<%= String.format("%.4f", p[2]) %>%;height:<%= String.format("%.4f", p[3]) %>%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;font-family:sans-serif;border:1.5px solid <%= color %>;color:<%= color %>;background:transparent;border-radius:3px;text-decoration:none;box-sizing:border-box;cursor:pointer;">
+                <%= slot.getSlotNo() %>
+            </a>
+            <% } %>
+        </div>
+        <%
             } else {
             // lane groups for other lots
             int[][] laneGroups = null;
-            if ("Kumari - Car".equals(selLotName)) {
-                laneGroups = new int[][]{
-                    {6},
-                    {4},
-                    {1},
-                    {2},
-                    {4},
-                    {12},
-                    {12}
-                };
-            }
 
             if (slots != null && laneGroups != null) {
         %>

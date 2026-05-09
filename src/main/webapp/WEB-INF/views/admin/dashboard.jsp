@@ -79,18 +79,22 @@
                 List<Lot> lots = (List<Lot>) request.getAttribute("lots");
                 if (lots != null) {
                     for (Lot lot : lots) {
-                        // we dont have per-lot stats yet so just show 0
-                        int pct = 0;
+                            int occPct = lot.getTotalSlots() > 0
+                            ? (lot.getOccupiedSlots() * 100 / lot.getTotalSlots()) : 0;
+                        int resPct = lot.getTotalSlots() > 0
+                            ? (lot.getReservedSlots() * 100 / lot.getTotalSlots()) : 0;
+                        int totalPct = occPct + resPct;
                         String barColor = "bar-green";
-                        if (pct >= 75) barColor = "bar-red";
-                        else if (pct >= 50) barColor = "bar-yellow";
+                        if (totalPct >= 75) barColor = "bar-red";
+                        else if (totalPct >= 50) barColor = "bar-yellow";
             %>
             <div class="occupancy-row">
                 <span class="lot-name"><%= lot.getLotName() %></span>
                 <div class="bar-track">
-                    <div class="bar-fill <%= barColor %>" style="width: <%= pct %>%"></div>
+                    <div class="bar-fill <%= barColor %>" style="width: <%= occPct %>%"></div>
+                    <div class="bar-fill" style="width: <%= resPct %>%; background:#ca8a04;"></div>
                 </div>
-                <span class="lot-pct <%= barColor %>"><%= pct %>%</span>
+                <span class="lot-pct <%= barColor %>"><%= totalPct %>%</span>
             </div>
             <%
                     }

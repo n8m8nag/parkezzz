@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="838" height="840" viewBox="0 0 838 840">
-  <!-- asphalt background -->
   <rect width="838" height="840" fill="#0d1117" rx="8"/>
+  <rect x="6" y="6" width="826" height="828" fill="#111c2e" stroke="#72777e" stroke-width="2" rx="6"/>
 
   <!-- parking bay fills -->
   <rect x="51"  y="42" width="204" height="749" fill="#0c1929" rx="2"/>
@@ -9,150 +9,138 @@
   <rect x="567" y="399" width="194" height="220" fill="#0c1929" rx="2"/>
   <rect x="567" y="635" width="194" height="150" fill="#0c1929" rx="2"/>
 
-  <!-- pair centre dividers -->
-  <line x1="156" y1="42"  x2="156" y2="791" stroke="#2a5a96" stroke-width="2"/>
-  <line x1="406" y1="42"  x2="406" y2="791" stroke="#2a5a96" stroke-width="2"/>
-  <line x1="660" y1="163" x2="660" y2="383" stroke="#2a5a96" stroke-width="2"/>
-  <line x1="660" y1="399" x2="660" y2="619" stroke="#2a5a96" stroke-width="2"/>
-  <line x1="660" y1="635" x2="660" y2="785" stroke="#2a5a96" stroke-width="2"/>
+  <line x1="156" y1="42"  x2="156" y2="791" stroke="#72777e" stroke-width="2"/>
+  <line x1="406" y1="42"  x2="406" y2="791" stroke="#72777e" stroke-width="2"/>
+  <line x1="660" y1="163" x2="660" y2="383" stroke="#72777e" stroke-width="2"/>
+  <line x1="660" y1="399" x2="660" y2="619" stroke="#72777e" stroke-width="2"/>
+  <line x1="660" y1="635" x2="660" y2="785" stroke="#72777e" stroke-width="2"/>
 
-  <!-- left pair stalls col A (x=64 w=80 h=27 step=33, 22 rows) -->
-  <rect x="64" y="56"  width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="64" y="89"  width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="64" y="122" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="64" y="155" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="64" y="188" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="64" y="221" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="64" y="254" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="64" y="287" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="64" y="320" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="64" y="353" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="64" y="386" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="64" y="419" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="64" y="452" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="64" y="485" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="64" y="518" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="64" y="551" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="64" y="584" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="64" y="617" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="64" y="650" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="64" y="683" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="64" y="716" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="64" y="749" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-
-  <!-- left pair stalls col B (x=168) -->
-  <rect x="168" y="56"  width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="168" y="89"  width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="168" y="122" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="168" y="155" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="168" y="188" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="168" y="221" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="168" y="254" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="168" y="287" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="168" y="320" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="168" y="353" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="168" y="386" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="168" y="419" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="168" y="452" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="168" y="485" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="168" y="518" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="168" y="551" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="168" y="584" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="168" y="617" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="168" y="650" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="168" y="683" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="168" y="716" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="168" y="749" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-
-  <!-- mid pair stalls col C (x=314) -->
-  <rect x="314" y="56"  width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="314" y="89"  width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="314" y="122" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="314" y="155" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="314" y="188" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="314" y="221" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="314" y="254" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="314" y="287" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="314" y="320" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="314" y="353" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="314" y="386" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="314" y="419" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="314" y="452" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="314" y="485" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="314" y="518" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="314" y="551" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="314" y="584" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="314" y="617" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="314" y="650" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="314" y="683" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="314" y="716" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="314" y="749" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-
-  <!-- mid pair stalls col D (x=418) -->
-  <rect x="418" y="56"  width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="418" y="89"  width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="418" y="122" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="418" y="155" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="418" y="188" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="418" y="221" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="418" y="254" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="418" y="287" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="418" y="320" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="418" y="353" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="418" y="386" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="418" y="419" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="418" y="452" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="418" y="485" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="418" y="518" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="418" y="551" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="418" y="584" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="418" y="617" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="418" y="650" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="418" y="683" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="418" y="716" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="418" y="749" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-
-  <!-- right box 1 col A (x=580, 6 rows y=176 step=33) -->
-  <rect x="580" y="176" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="580" y="209" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="580" y="242" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="580" y="275" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="580" y="308" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="580" y="341" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-
-  <!-- right box 1 col B (x=668) -->
-  <rect x="668" y="176" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="668" y="209" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="668" y="242" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="668" y="275" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="668" y="308" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="668" y="341" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-
-  <!-- right box 2 col A (y=411) -->
-  <rect x="580" y="411" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="580" y="444" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="580" y="477" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="580" y="510" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="580" y="543" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="580" y="576" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-
-  <!-- right box 2 col B -->
-  <rect x="668" y="411" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="668" y="444" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="668" y="477" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="668" y="510" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="668" y="543" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="668" y="576" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-
-  <!-- right box 3 col A (y=647, 4 rows) -->
-  <rect x="580" y="647" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="580" y="680" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="580" y="713" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="580" y="746" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-
-  <!-- right box 3 col B -->
-  <rect x="668" y="647" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="668" y="680" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="668" y="713" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
-  <rect x="668" y="746" width="80" height="27" fill="none" stroke="#2a5a96" stroke-width="1.2"/>
+  <!-- col A stalls (x=64 w=80 h=27 step=33) -->
+  <rect x="64" y="56"  width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="64" y="89"  width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="64" y="122" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="64" y="155" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="64" y="188" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="64" y="221" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="64" y="254" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="64" y="287" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="64" y="320" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="64" y="353" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="64" y="386" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="64" y="419" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="64" y="452" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="64" y="485" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="64" y="518" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="64" y="551" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="64" y="584" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="64" y="617" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="64" y="650" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="64" y="683" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="64" y="716" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="64" y="749" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <!-- col B (x=168) -->
+  <rect x="168" y="56"  width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="168" y="89"  width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="168" y="122" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="168" y="155" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="168" y="188" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="168" y="221" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="168" y="254" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="168" y="287" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="168" y="320" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="168" y="353" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="168" y="386" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="168" y="419" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="168" y="452" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="168" y="485" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="168" y="518" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="168" y="551" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="168" y="584" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="168" y="617" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="168" y="650" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="168" y="683" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="168" y="716" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="168" y="749" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <!-- col C (x=314) -->
+  <rect x="314" y="56"  width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="314" y="89"  width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="314" y="122" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="314" y="155" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="314" y="188" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="314" y="221" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="314" y="254" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="314" y="287" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="314" y="320" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="314" y="353" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="314" y="386" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="314" y="419" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="314" y="452" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="314" y="485" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="314" y="518" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="314" y="551" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="314" y="584" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="314" y="617" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="314" y="650" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="314" y="683" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="314" y="716" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="314" y="749" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <!-- col D (x=418) -->
+  <rect x="418" y="56"  width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="418" y="89"  width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="418" y="122" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="418" y="155" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="418" y="188" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="418" y="221" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="418" y="254" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="418" y="287" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="418" y="320" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="418" y="353" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="418" y="386" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="418" y="419" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="418" y="452" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="418" y="485" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="418" y="518" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="418" y="551" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="418" y="584" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="418" y="617" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="418" y="650" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="418" y="683" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="418" y="716" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="418" y="749" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <!-- right box 1 A (x=580 y=176) -->
+  <rect x="580" y="176" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="580" y="209" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="580" y="242" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="580" y="275" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="580" y="308" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="580" y="341" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <!-- right box 1 B (x=668) -->
+  <rect x="668" y="176" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="668" y="209" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="668" y="242" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="668" y="275" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="668" y="308" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="668" y="341" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <!-- right box 2 A (y=411) -->
+  <rect x="580" y="411" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="580" y="444" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="580" y="477" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="580" y="510" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="580" y="543" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="580" y="576" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="668" y="411" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="668" y="444" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="668" y="477" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="668" y="510" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="668" y="543" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="668" y="576" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <!-- right box 3 (y=647) -->
+  <rect x="580" y="647" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="580" y="680" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="580" y="713" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="580" y="746" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="668" y="647" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="668" y="680" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="668" y="713" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="668" y="746" width="80" height="27" fill="none" stroke="#72777e" stroke-width="1.2"/>
 </svg>

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="720" viewBox="0 0 980 720">
+  <!-- outer background -->
+  <rect width="980" height="720" fill="#0d1117" rx="8"/>
+
+  <!-- lot container: border + lighter interior (aisles) -->
+  <rect x="6" y="6" width="968" height="708" fill="#111c2e" stroke="#72777e" stroke-width="2" rx="6"/>
+
+  <!-- TOP-LEFT BAY: groups 1 (6 slots) + 2 (4 slots) -->
+  <rect x="42" y="40" width="572" height="148" fill="#0c1929" rx="2"/>
+  <!-- aisle divider between rows 1 and 2 -->
+  <line x1="42" y1="110" x2="614" y2="110" stroke="#72777e" stroke-width="1.5"/>
+
+  <!-- Decorative tree planter: in second row, between slot 389 (x≈520) and slot 394 -->
+  <circle cx="467" cy="146" r="28" fill="#142b14" stroke="#72777e" stroke-width="1.2" opacity="0.85"/>
+  <circle cx="467" cy="146" r="17" fill="#1d3d1d" stroke="#72777e" stroke-width="0.8" opacity="0.7"/>
+  <circle cx="467" cy="146" r="8"  fill="#2a5a2a" opacity="0.6"/>
+
+  <!-- RIGHT BAY: group 4 (2 slots vertical) -->
+  <rect x="864" y="40" width="106" height="148" fill="#0c1929" rx="2"/>
+
+  <!-- MIDDLE BAY: group 5 (4 slots) -->
+  <rect x="185" y="252" width="392" height="78" fill="#0c1929" rx="2"/>
+
+  <!-- BOTTOM BAY: groups 6 + 7 (12 + 12 face-to-face) -->
+  <rect x="20" y="438" width="930" height="164" fill="#0c1929" rx="2"/>
+  <!-- face-to-face centre aisle line -->
+  <line x1="20" y1="522" x2="950" y2="522" stroke="#72777e" stroke-width="1.5"/>
+
+  <!-- GROUP 1: 6 slots, top row, y=52, h=52, w=85, step=93 -->
+  <rect x="55"  y="52" width="85" height="52" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="148" y="52" width="85" height="52" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="241" y="52" width="85" height="52" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="334" y="52" width="85" height="52" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="427" y="52" width="85" height="52" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="520" y="52" width="85" height="52" fill="none" stroke="#72777e" stroke-width="1.2"/>
+
+  <!-- GROUP 2: 4 slots, second row, y=120, h=52, w=85 -->
+  <rect x="55"  y="120" width="85" height="52" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="148" y="120" width="85" height="52" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="241" y="120" width="85" height="52" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="334" y="120" width="85" height="52" fill="none" stroke="#72777e" stroke-width="1.2"/>
+
+  <!-- GROUP 3: 1 slot beside tree, moved to second row, x=520, y=120 -->
+  <rect x="520" y="120" width="85" height="52" fill="none" stroke="#72777e" stroke-width="1.2"/>
+
+  <!-- GROUP 4: 2 slots right column, x=880, w=70, h=52 -->
+  <rect x="880" y="52"  width="70" height="52" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="880" y="120" width="70" height="52" fill="none" stroke="#72777e" stroke-width="1.2"/>
+
+  <!-- GROUP 5: 4 slots middle, y=265, h=52, w=85, step=93 -->
+  <rect x="200" y="265" width="85" height="52" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="293" y="265" width="85" height="52" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="386" y="265" width="85" height="52" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="479" y="265" width="85" height="52" fill="none" stroke="#72777e" stroke-width="1.2"/>
+
+  <!-- GROUP 6: 12 slots, bottom row A, y=460, h=50, w=65, step=73 -->
+  <rect x="32"  y="460" width="65" height="50" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="105" y="460" width="65" height="50" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="178" y="460" width="65" height="50" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="251" y="460" width="65" height="50" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="324" y="460" width="65" height="50" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="397" y="460" width="65" height="50" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="470" y="460" width="65" height="50" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="543" y="460" width="65" height="50" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="616" y="460" width="65" height="50" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="689" y="460" width="65" height="50" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="762" y="460" width="65" height="50" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="835" y="460" width="65" height="50" fill="none" stroke="#72777e" stroke-width="1.2"/>
+
+  <!-- GROUP 7: 12 slots, bottom row B, y=534, h=50, w=65, step=73 -->
+  <rect x="32"  y="534" width="65" height="50" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="105" y="534" width="65" height="50" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="178" y="534" width="65" height="50" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="251" y="534" width="65" height="50" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="324" y="534" width="65" height="50" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="397" y="534" width="65" height="50" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="470" y="534" width="65" height="50" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="543" y="534" width="65" height="50" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="616" y="534" width="65" height="50" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="689" y="534" width="65" height="50" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="762" y="534" width="65" height="50" fill="none" stroke="#72777e" stroke-width="1.2"/>
+  <rect x="835" y="534" width="65" height="50" fill="none" stroke="#72777e" stroke-width="1.2"/>
+</svg>

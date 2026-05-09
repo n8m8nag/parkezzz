@@ -9,15 +9,24 @@ import java.util.List;
 // handles all db stuff for lot table
 public class LotDAO {
 
-    // get all lots - for dropdown in findSlot page
+    // get all lots with per-lot occupied count
     public List<Lot> getAllLots() {
         List<Lot> lots = new ArrayList<>();
-        String sql = "SELECT * FROM lot ORDER BY lot_id";
+        String sql =
+            "SELECT l.lot_id, l.lot_name, l.total_slots, l.vehicle_type, " +
+            "COUNT(CASE WHEN s.slot_label = 'Occupied' THEN 1 END) AS occupied_slots, " +
+            "COUNT(CASE WHEN s.slot_label = 'Reserved' THEN 1 END) AS reserved_slots " +
+            "FROM lot l LEFT JOIN slot s ON l.lot_id = s.lot_id " +
+            "GROUP BY l.lot_id, l.lot_name, l.total_slots, l.vehicle_type " +
+            "ORDER BY l.lot_id";
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                lots.add(mapLot(rs));
+                Lot l = mapLot(rs);
+                l.setOccupiedSlots(rs.getInt("occupied_slots"));
+                l.setReservedSlots(rs.getInt("reserved_slots"));
+                lots.add(l);
             }
         } catch (Exception e) {
             System.err.println("LotDAO.getAllLots error: " + e.getMessage());
