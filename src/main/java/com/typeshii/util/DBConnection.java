@@ -3,7 +3,7 @@ package com.typeshii.util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-// db connection util - everyone uses this
+//used to connect database to webapp
 public class DBConnection {
 
     private static final String URL = "jdbc:mysql://localhost:3306/ParkEZz?useSSL=false&serverTimezone=UTC";

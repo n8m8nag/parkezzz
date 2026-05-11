@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS record (
     slot_no      INT         NOT NULL,
     vehicle_no   VARCHAR(20) NOT NULL,
     user_id      INT         NOT NULL,
-    action_type  ENUM('Enter', 'Exit') NOT NULL,
+    action_type  ENUM('Enter', 'Exit', 'Reserve') NOT NULL,
     action_time  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_record_slot
         FOREIGN KEY (slot_no) REFERENCES slot(slot_no)

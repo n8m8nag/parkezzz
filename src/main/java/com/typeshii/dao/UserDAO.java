@@ -26,7 +26,7 @@ public class UserDAO {
         return user;
     }
 
-    // find user by student id - used for duplicate check
+    // find user by  id - used for duplicate check while registering
     public User getUserById(String id) {
         User user = null;
         String sql = "SELECT * FROM users WHERE id = ?";
@@ -43,7 +43,7 @@ public class UserDAO {
         return user;
     }
 
-    // find user by phone - for duplicate check
+    // find user by phone - for duplicate check while registering
     public User getUserByPhone(String phone) {
         User user = null;
         String sql = "SELECT * FROM users WHERE phone = ?";

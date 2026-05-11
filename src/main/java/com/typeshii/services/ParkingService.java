@@ -66,7 +66,7 @@ public class ParkingService {
             record.setSlotNo(slotNo);
             record.setVehicleNo(vehicleNo);
             record.setUserId(userId);
-            record.setActionType("Enter");
+            record.setActionType("Reserve");
             recordDAO.insertRecord(record);
         }
         return updated;

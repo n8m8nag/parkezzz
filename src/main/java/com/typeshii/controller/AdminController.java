@@ -78,6 +78,10 @@ public class AdminController extends HttpServlet {
                 req.setAttribute("vehicleMap", userService.getVehicleNoMap());
                 req.getRequestDispatcher("/WEB-INF/views/admin/users.jsp").forward(req, res);
                 break;
+            case "/reports":
+                req.setAttribute("records", parkingService.getAllRecords());
+                req.getRequestDispatcher("/WEB-INF/views/admin/reports.jsp").forward(req, res);
+                break;
             case "/logout":
                 req.getSession().invalidate();
                 res.sendRedirect(req.getContextPath() + "/adminLogin.jsp");
@@ -111,10 +115,6 @@ public class AdminController extends HttpServlet {
 
         String adminKey = req.getParameter("adminKey");
         
-        // debug - print what we're receiving
-        System.out.println("Received key: [" + adminKey + "]");
-        System.out.println("Stored key: [" + ADMIN_KEY + "]");
-        System.out.println("Match: " + ADMIN_KEY.equals(adminKey != null ? adminKey.trim() : ""));
 
         if (adminKey == null || adminKey.trim().isEmpty()) {
             req.getSession().setAttribute("error", "Please enter admin key");

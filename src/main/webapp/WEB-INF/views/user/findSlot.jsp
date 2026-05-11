@@ -560,6 +560,7 @@
     <%
         Record activeRecord = (Record) request.getAttribute("activeRecord");
         if (selectedSlot != null && !"Available".equals(selectedSlot.getSlotLabel()) && activeRecord != null) {
+            boolean isOwner = loggedInUser != null && loggedInUser.getUserId() == activeRecord.getUserId();
     %>
     <div class="popup-overlay">
         <div class="popup-box">
@@ -570,6 +571,7 @@
             <p class="popup-value"><%= activeRecord.getFullName() %></p>
             <p class="popup-label">Phone</p>
             <p class="popup-value"><%= activeRecord.getPhone() %></p>
+            <% if (isOwner) { %>
             <form method="post" action="${pageContext.request.contextPath}/slot/exit">
                 <input type="hidden" name="slotNo" value="<%= selectedSlot.getSlotNo() %>"/>
                 <input type="hidden" name="lotId" value="<%= selectedSlot.getLotId() %>"/>
@@ -577,6 +579,7 @@
                 <input type="hidden" name="userId" value="<%= activeRecord.getUserId() %>"/>
                 <button type="submit" class="btn-clear">Clear</button>
             </form>
+            <% } %>
             <a href="${pageContext.request.contextPath}/user/findSlot" class="btn-close">✕</a>
         </div>
     </div>
