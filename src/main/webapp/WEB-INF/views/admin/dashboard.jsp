@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.typeshii.model.Lot" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,62 +43,37 @@
         </div>
 
         <%-- stat cards --%>
-        <%
-            int totalSlots = request.getAttribute("totalSlots") != null ?
-                (int) request.getAttribute("totalSlots") : 0;
-            int occupied = request.getAttribute("occupied") != null ?
-                (int) request.getAttribute("occupied") : 0;
-            int available = request.getAttribute("available") != null ?
-                (int) request.getAttribute("available") : 0;
-            int occupiedPercent = totalSlots > 0 ? (occupied * 100 / totalSlots) : 0;
-            int availablePercent = totalSlots > 0 ? (available * 100 / totalSlots) : 0;
-        %>
         <div class="stat-cards">
             <div class="stat-card">
                 <p class="stat-label">Total Slots</p>
-                <p class="stat-value white"><%= totalSlots %></p>
+                <p class="stat-value white">${totalSlots}</p>
                 <p class="stat-sub">5 Lots</p>
             </div>
             <div class="stat-card">
                 <p class="stat-label">Occupied</p>
-                <p class="stat-value red"><%= occupied %></p>
-                <p class="stat-sub"><%= occupiedPercent %>% full</p>
+                <p class="stat-value red">${occupied}</p>
+                <p class="stat-sub">${occupiedPercent}% full</p>
             </div>
             <div class="stat-card">
                 <p class="stat-label">Available</p>
-                <p class="stat-value green"><%= available %></p>
-                <p class="stat-sub"><%= availablePercent %>% Free</p>
+                <p class="stat-value green">${available}</p>
+                <p class="stat-sub">${availablePercent}% Free</p>
             </div>
         </div>
 
         <%-- lot occupancy bars --%>
         <div class="occupancy-section">
             <h3 class="section-title">Lot Occupancy</h3>
-            <%
-                List<Lot> lots = (List<Lot>) request.getAttribute("lots");
-                if (lots != null) {
-                    for (Lot lot : lots) {
-                            int occPct = lot.getTotalSlots() > 0
-                            ? (lot.getOccupiedSlots() * 100 / lot.getTotalSlots()) : 0;
-                        int resPct = lot.getTotalSlots() > 0
-                            ? (lot.getReservedSlots() * 100 / lot.getTotalSlots()) : 0;
-                        int totalPct = occPct + resPct;
-                        String barColor = "bar-green";
-                        if (totalPct >= 75) barColor = "bar-red";
-                        else if (totalPct >= 50) barColor = "bar-yellow";
-            %>
-            <div class="occupancy-row">
-                <span class="lot-name"><%= lot.getLotName() %></span>
-                <div class="bar-track">
-                    <div class="bar-fill <%= barColor %>" style="width: <%= occPct %>%"></div>
-                    <div class="bar-fill" style="width: <%= resPct %>%; background:#ca8a04;"></div>
+            <c:forEach var="lot" items="${lots}">
+                <div class="occupancy-row">
+                    <span class="lot-name">${lot.lotName}</span>
+                    <div class="bar-track">
+                        <div class="bar-fill ${lot.barColor}" style="width: ${lot.occupiedPercent}%"></div>
+                        <div class="bar-fill" style="width: ${lot.reservedPercent}%; background:#ca8a04;"></div>
+                    </div>
+                    <span>${lot.totalPercent}%</span>
                 </div>
-                <span ><%= totalPct %>%</span>
-            </div>
-            <%
-                    }
-                }
-            %>
+            </c:forEach>
         </div>
 
         <%-- admin key section --%>

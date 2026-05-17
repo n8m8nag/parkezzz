@@ -25,4 +25,11 @@ public class User {
 
     public String getUserType() { return userType; }
     public void setUserType(String userType) { this.userType = userType; }
+
+    // first 2 chars of the name in uppercase — used for the avatar circle in the UI
+    public String getInitials() {
+        return fullName != null && fullName.length() >= 2
+            ? fullName.substring(0, 2).toUpperCase()
+            : "??";
+    }
 }

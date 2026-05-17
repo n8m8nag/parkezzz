@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
-<%
-    String error = (String) session.getAttribute("error");
-    if (error != null) session.removeAttribute("error");
-%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,9 +13,9 @@
         <div class="auth-left">
             <h2>Admin Login</h2>
 
-            <% if (error != null) { %>
-                <p class="error-msg"><%= error %></p>
-            <% } %>
+            <c:if test="${not empty error}">
+                <p class="error-msg">${error}</p>
+            </c:if>
 
             <form id="adminForm" action="${pageContext.request.contextPath}/admin/login" method="post">
                 <label>Admin Key</label>

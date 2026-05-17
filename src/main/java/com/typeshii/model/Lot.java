@@ -29,4 +29,26 @@ public class Lot {
 
     public int getReservedSlots() { return reservedSlots; }
     public void setReservedSlots(int reservedSlots) { this.reservedSlots = reservedSlots; }
+
+    // avoids division by zero on empty lots
+    public int getOccupiedPercent() {
+        return totalSlots > 0 ? (occupiedSlots * 100 / totalSlots) : 0;
+    }
+
+    public int getReservedPercent() {
+        return totalSlots > 0 ? (reservedSlots * 100 / totalSlots) : 0;
+    }
+
+    // combined occupied + reserved — used as the total fill width of the progress bar
+    public int getTotalPercent() {
+        return getOccupiedPercent() + getReservedPercent();
+    }
+
+    // red if nearly full, yellow if half full, green otherwise
+    public String getBarColor() {
+        int total = getTotalPercent();
+        if (total >= 75) return "bar-red";
+        if (total >= 50) return "bar-yellow";
+        return "bar-green";
+    }
 }

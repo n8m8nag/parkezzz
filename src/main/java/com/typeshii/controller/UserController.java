@@ -1,17 +1,20 @@
 package com.typeshii.controller;
 
+import com.typeshii.model.Record;
 import com.typeshii.model.User;
 import com.typeshii.model.Vehicle;
 import com.typeshii.services.UserService;
 import com.typeshii.services.ParkingService;
+import com.typeshii.util.SlotCoordinates;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.WebServlet;
 import java.io.IOException;
 import java.util.List;
 
-// handles all user side requests
 
+
+// handles all /user/* routes — login, register, slot browsing, logout
 public class UserController extends HttpServlet {
 
     private UserService userService = new UserService();
@@ -27,6 +30,7 @@ public class UserController extends HttpServlet {
 
         switch (path) {
             case "/findSlot":
+                // load slots for the selected lot and pre-compute the schematic overlay positions
                 java.util.List<com.typeshii.model.Lot> allLots = parkingService.getAllLots();
                 req.setAttribute("lots", allLots);
                 String lotIdParam = req.getParameter("lotId");
@@ -34,12 +38,18 @@ public class UserController extends HttpServlet {
                     lotIdParam = String.valueOf(allLots.get(0).getLotId());
                 }
                 if (lotIdParam != null) {
-                    req.setAttribute("slots", parkingService.getSlotsByLot(Integer.parseInt(lotIdParam)));
+                    List<com.typeshii.model.Slot> slots = parkingService.getSlotsByLot(Integer.parseInt(lotIdParam));
+                    req.setAttribute("slots", slots);
                     req.setAttribute("selectedLotId", lotIdParam);
+                    String lotName = resolveLotName(allLots, lotIdParam);
+                    req.setAttribute("selectedLotName", lotName);
+                    req.setAttribute("slotViews", SlotCoordinates.buildSlotViews(slots, lotName));
+                    setSchematicAttrs(req, lotName);
                 }
                 req.getRequestDispatcher("/WEB-INF/views/user/findSlot.jsp").forward(req, res);
                 break;
             case "/slotDetail":
+                // same as findSlot but also loads the selected slot — shows popup on the same page
                 String slotNoParam = req.getParameter("slotNo");
                 if (slotNoParam != null) {
                     int slotNo = Integer.parseInt(slotNoParam);
@@ -49,10 +59,20 @@ public class UserController extends HttpServlet {
                         java.util.List<com.typeshii.model.Lot> lotsForDetail = parkingService.getAllLots();
                         req.setAttribute("lots", lotsForDetail);
                         String detailLotId = String.valueOf(selectedSlot.getLotId());
-                        req.setAttribute("slots", parkingService.getSlotsByLot(selectedSlot.getLotId()));
+                        List<com.typeshii.model.Slot> detailSlots = parkingService.getSlotsByLot(selectedSlot.getLotId());
+                        req.setAttribute("slots", detailSlots);
                         req.setAttribute("selectedLotId", detailLotId);
+                        String detailLotName = resolveLotName(lotsForDetail, detailLotId);
+                        req.setAttribute("selectedLotName", detailLotName);
+                        req.setAttribute("slotViews", SlotCoordinates.buildSlotViews(detailSlots, detailLotName));
+                        setSchematicAttrs(req, detailLotName);
                         if (!"Available".equals(selectedSlot.getSlotLabel())) {
-                            req.setAttribute("activeRecord", parkingService.getActiveRecord(slotNo));
+                            Record activeRecord = parkingService.getActiveRecord(slotNo);
+                            req.setAttribute("activeRecord", activeRecord);
+                            User loggedInUser = (User) req.getSession().getAttribute("loggedInUser");
+                            boolean isOwner = loggedInUser != null && activeRecord != null
+                                && loggedInUser.getUserId() == activeRecord.getUserId();
+                            req.setAttribute("isOwner", isOwner);
                         }
                     }
                 }
@@ -87,6 +107,27 @@ public class UserController extends HttpServlet {
         }
     }
 
+    // map a lotId string back to its display name — needed to pick the right coordinate array
+    private String resolveLotName(java.util.List<com.typeshii.model.Lot> lots, String lotId) {
+        for (com.typeshii.model.Lot l : lots) {
+            if (lotId.equals(String.valueOf(l.getLotId()))) return l.getLotName();
+        }
+        return "";
+    }
+
+    // set schematicImage and schematicMaxWidth based on lot name — JSP uses these to render the overlay
+    private void setSchematicAttrs(HttpServletRequest req, String lotName) {
+        String image = "", maxWidth = "980px";
+        if      ("Skill - Motorcycle".equals(lotName))  { image = "schematic_skill_moto.svg";  maxWidth = "980px"; }
+        else if ("Skill - Car".equals(lotName))         { image = "schematic_skill_car.svg";   maxWidth = "838px"; }
+        else if ("Himal - Motorcycle".equals(lotName))  { image = "schematic_himal_moto.svg";  maxWidth = "1200px"; }
+        else if ("Kumari - Motorcycle".equals(lotName)) { image = "schematic_kumari_moto.svg"; maxWidth = "980px"; }
+        else if ("Kumari - Car".equals(lotName))        { image = "schematic_kumari_car.svg";  maxWidth = "980px"; }
+        req.setAttribute("schematicImage", image);
+        req.setAttribute("schematicMaxWidth", maxWidth);
+    }
+
+    // look up user by vehicle number and create a session on success
     private void handleLogin(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
 
@@ -112,6 +153,7 @@ public class UserController extends HttpServlet {
         res.sendRedirect(req.getContextPath() + "/user/findSlot");
     }
 
+    // validate fields, run duplicate checks, then insert user + vehicle
     private void handleRegister(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
 

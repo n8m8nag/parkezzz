@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,9 +16,9 @@
             </div>
             <span class="badge-student">User</span>
         </div>
-        <% if (request.getAttribute("error") != null) { %>
+        <c:if test="${not empty error}">
             <p class="error-msg">${error}</p>
-        <% } %>
+        </c:if>
         <form action="${pageContext.request.contextPath}/user/register" method="post">
             <div class="register-panels">
                 <div class="panel">

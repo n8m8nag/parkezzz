@@ -8,8 +8,8 @@ import jakarta.servlet.annotation.WebServlet;
 import java.io.IOException;
 import java.util.List;
 
-// handles slot operations - occupy reserve exit
 
+// handles /slot/enter, /slot/exit, /slot/reserve — the actual parking actions
 public class SlotController extends HttpServlet {
 
     private ParkingService parkingService = new ParkingService();
@@ -18,6 +18,7 @@ public class SlotController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
 
+        // GET is only used for direct slot lookups by lotId
         String lotIdParam = req.getParameter("lotId");
 
         if (lotIdParam == null) {
@@ -38,12 +39,14 @@ public class SlotController extends HttpServlet {
         String path = req.getPathInfo();
         if (path == null) path = "/";
 
+        // parse common params used by all three actions
         int slotNo       = Integer.parseInt(req.getParameter("slotNo"));
         String vehicleNo = req.getParameter("vehicleNo");
         if (vehicleNo == null) vehicleNo = "";
         String userIdStr = req.getParameter("userId");
         int userId = (userIdStr != null && !userIdStr.isEmpty()) ? Integer.parseInt(userIdStr) : 0;
 
+        // delegate to the right service method based on the path
         switch (path) {
             case "/enter":
                 parkingService.enterSlot(slotNo, vehicleNo, userId);
@@ -56,9 +59,11 @@ public class SlotController extends HttpServlet {
                 break;
         }
 
+        // preserve the lot selection so the right lot stays open after the action
         String lotId = req.getParameter("lotId");
         String lotParam = (lotId != null && !lotId.isEmpty()) ? "?lotId=" + lotId : "";
 
+        // send admin back to slot map, regular user back to find slot
         HttpSession session = req.getSession(false);
         boolean isAdmin = session != null && session.getAttribute("loggedInAdmin") != null;
         if (isAdmin) {

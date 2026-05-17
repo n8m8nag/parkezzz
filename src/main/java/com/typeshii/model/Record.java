@@ -49,4 +49,16 @@ public class Record {
 
     public String getColor() { return color; }
     public void setColor(String color) { this.color = color; }
+
+    // maps action type to a CSS badge class for color-coded display in the reports table
+    public String getBadgeClass() {
+        if ("Enter".equals(actionType)) return "badge-enter";
+        if ("Exit".equals(actionType)) return "badge-exit";
+        return "badge-reserve";
+    }
+
+    // strips the nanoseconds off the timestamp so it reads cleanly in the UI
+    public String getActionTimeStr() {
+        return actionTime != null ? actionTime.toString().substring(0, 19) : "—";
+    }
 }

@@ -30,7 +30,7 @@ public class AdminFilter implements Filter {
         if (isAdmin) {
             chain.doFilter(req, res);
         } else {
-            response.sendRedirect(request.getContextPath() + "/adminLogin.jsp");
+            response.sendRedirect(request.getContextPath() + "/admin/login");
         }
     }
 }

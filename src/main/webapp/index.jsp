@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,13 +13,13 @@
         <div class="auth-left">
             <h2>Sign In</h2>
 
-            <% if (request.getAttribute("error") != null) { %>
+            <c:if test="${not empty error}">
                 <p class="error-msg">${error}</p>
-            <% } %>
+            </c:if>
 
-            <% if (request.getAttribute("success") != null) { %>
+            <c:if test="${not empty success}">
                 <p class="success-msg">${success}</p>
-            <% } %>
+            </c:if>
 
             <form id="loginForm" action="${pageContext.request.contextPath}/user/login" method="post">
                 <label>Vehicle Number</label>

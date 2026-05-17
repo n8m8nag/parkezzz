@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.typeshii.model.Record" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,58 +57,43 @@
         </div>
 
         <div class="report-wrap">
-        <%
-            List<Record> records = (List<Record>) request.getAttribute("records");
-            if (records == null || records.isEmpty()) {
-        %>
-            <p class="no-records">No records found.</p>
-        <%
-            } else {
-        %>
-        <table class="report-table" id="reportTable">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Slot</th>
-                    <th>Vehicle No</th>
-                    <th>Name</th>
-                    <th>Phone</th>
-                    <th>Model</th>
-                    <th>Color</th>
-                    <th>Action</th>
-                    <th>Time</th>
-                </tr>
-            </thead>
-            <tbody>
-            <%
-                for (Record rec : records) {
-                    String action = rec.getActionType();
-                    String badgeClass = "Enter".equals(action) ? "badge-enter"
-                                      : "Exit".equals(action)  ? "badge-exit"
-                                      : "badge-reserve";
-                    String name  = rec.getFullName()    != null ? rec.getFullName()    : "—";
-                    String phone = rec.getPhone()        != null ? rec.getPhone()        : "—";
-                    String model = rec.getVehicleModel() != null ? rec.getVehicleModel() : "—";
-                    String color = rec.getColor()        != null ? rec.getColor()        : "—";
-                    String time  = rec.getActionTime()   != null ? rec.getActionTime().toString().substring(0, 19) : "—";
-            %>
-            <tr>
-                <td><%= rec.getRecordId() %></td>
-                <td><%= rec.getSlotNo() %></td>
-                <td><%= rec.getVehicleNo() %></td>
-                <td><%= name %></td>
-                <td><%= phone %></td>
-                <td><%= model %></td>
-                <td><%= color %></td>
-                <td><span class="badge <%= badgeClass %>"><%= action %></span></td>
-                <td><%= time %></td>
-            </tr>
-            <%
-                }
-            %>
-            </tbody>
-        </table>
-        <% } %>
+        <c:choose>
+            <c:when test="${empty records}">
+                <p class="no-records">No records found.</p>
+            </c:when>
+            <c:otherwise>
+                <table class="report-table" id="reportTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Slot</th>
+                            <th>Vehicle No</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Model</th>
+                            <th>Color</th>
+                            <th>Action</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach var="rec" items="${records}">
+                            <tr>
+                                <td>${rec.recordId}</td>
+                                <td>${rec.slotNo}</td>
+                                <td>${rec.vehicleNo}</td>
+                                <td>${empty rec.fullName ? '—' : rec.fullName}</td>
+                                <td>${empty rec.phone ? '—' : rec.phone}</td>
+                                <td>${empty rec.vehicleModel ? '—' : rec.vehicleModel}</td>
+                                <td>${empty rec.color ? '—' : rec.color}</td>
+                                <td><span class="badge ${rec.badgeClass}">${rec.actionType}</span></td>
+                                <td>${rec.actionTimeStr}</td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
+            </c:otherwise>
+        </c:choose>
         </div>
     </div>
 </div>

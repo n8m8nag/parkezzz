@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(del \"C:\\\\Users\\\\Admin\\\\Desktop\\\\NAMAN WEBAPP\\\\parkezzz\\\\src\\\\main\\\\webapp\\\\WEB-INF\\\\views\\\\admin\\\\reports.jsp\")"
-    ]
-  }
-}
