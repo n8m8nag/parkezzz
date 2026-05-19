@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" isErrorPage="true" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>404 - ParkEZz</title>
+    <title>500 - ParkEZz</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -24,39 +24,39 @@
             justify-content: center;
         }
 
-        /* center portrait */
-        .portrait {
+        /* the 5 */
+        .num-five {
             position: absolute;
-            height:50vh;
+            height: 58vh;
             top: 40%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            left: 25%;
+            transform: translateY(-50%);
+            mix-blend-mode: screen;
+            opacity: 0.82;
+            pointer-events: none;
+        }
+
+        /* first 0 — left portrait, normal */
+        .zero-left {
+            position: absolute;
+            height: 50vh;
+            top: 40%;
+            left: 40%;
+            transform: translateY(-50%) ;
             mix-blend-mode: screen;
             opacity: 0.88;
             pointer-events: none;
         }
 
-        /* left 4 */
-        .num-left {
+        /* second 0 — right portrait, flipped to face left one */
+        .zero-right {
             position: absolute;
-            height: 58vh;
+            height: 50vh;
             top: 40%;
-            left: 22%;
+            right: 30%;
             transform: translateY(-50%);
             mix-blend-mode: screen;
-            opacity: 0.82;
-            pointer-events: none;
-        }
-
-        /* right 4 */
-        .num-right {
-            position: absolute;
-            height: 58vh;
-            top: 40%;
-            right: 22%;
-            transform: translateY(-50%);
-            mix-blend-mode: screen;
-            opacity: 0.82;
+            opacity: 0.88;
             pointer-events: none;
         }
 
@@ -68,10 +68,11 @@
             transform: translateX(-50%);
             text-align: center;
             z-index: 10;
+            white-space: nowrap;
         }
         .ui p {
             color: #3d4556;
-            font-size:21px;
+            font-size: 21px;
             letter-spacing: 4px;
             text-transform: uppercase;
             margin-bottom: 55px;
@@ -102,13 +103,13 @@
 <body>
 
     <div class="scene">
-        <img src="${pageContext.request.contextPath}/images/4.png"         class="num-left"  alt="4">
-        <img src="${pageContext.request.contextPath}/images/diamond.png"   class="portrait"  alt="">
-        <img src="${pageContext.request.contextPath}/images/4.png"         class="num-right" alt="4">
+        <img src="${pageContext.request.contextPath}/images/5.png"       class="num-five"   alt="5">
+        <img src="${pageContext.request.contextPath}/images/0.png" class="zero-left"  alt="0">
+        <img src="${pageContext.request.contextPath}/images/0.png" class="zero-right" alt="0">
     </div>
 
     <div class="ui">
-        <p>You Lost? </p>	
+        <p>This Rarely Happens, Go Back -_-</p>
         <a href="${pageContext.request.contextPath}/index.jsp">Go Home</a>
     </div>
 
