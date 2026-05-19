@@ -34,8 +34,15 @@ public class UserController extends HttpServlet {
                 java.util.List<com.typeshii.model.Lot> allLots = parkingService.getAllLots();
                 req.setAttribute("lots", allLots);
                 String lotIdParam = req.getParameter("lotId");
-                if (lotIdParam == null && !allLots.isEmpty()) {
-                    lotIdParam = String.valueOf(allLots.get(0).getLotId());
+                if (lotIdParam != null) {
+                    Cookie userLotCookie = new Cookie("userLastLotId", lotIdParam);
+                    userLotCookie.setMaxAge(30 * 24 * 60 * 60);
+                    userLotCookie.setPath("/");
+                    res.addCookie(userLotCookie);
+                } else {
+                    lotIdParam = getCookieValue(req, "userLastLotId");
+                    if (lotIdParam == null && !allLots.isEmpty())
+                        lotIdParam = String.valueOf(allLots.get(0).getLotId());
                 }
                 if (lotIdParam != null) {
                     List<com.typeshii.model.Slot> slots = parkingService.getSlotsByLot(Integer.parseInt(lotIdParam));
@@ -105,6 +112,14 @@ public class UserController extends HttpServlet {
             default:
                 res.sendRedirect(req.getContextPath() + "/index.jsp");
         }
+    }
+
+    private String getCookieValue(HttpServletRequest req, String name) {
+        Cookie[] cookies = req.getCookies();
+        if (cookies != null)
+            for (Cookie c : cookies)
+                if (name.equals(c.getName())) return c.getValue();
+        return null;
     }
 
     // map a lotId string back to its display name — needed to pick the right coordinate array

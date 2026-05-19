@@ -59,8 +59,15 @@ public class AdminController extends HttpServlet {
                 java.util.List<com.typeshii.model.Lot> allLots = parkingService.getAllLots();
                 req.setAttribute("lots", allLots);
                 String lotIdParam = req.getParameter("lotId");
-                if (lotIdParam == null && !allLots.isEmpty()) {
-                    lotIdParam = String.valueOf(allLots.get(0).getLotId());
+                if (lotIdParam != null) {
+                    Cookie adminLotCookie = new Cookie("adminLastLotId", lotIdParam);
+                    adminLotCookie.setMaxAge(30 * 24 * 60 * 60);
+                    adminLotCookie.setPath("/");
+                    res.addCookie(adminLotCookie);
+                } else {
+                    lotIdParam = getCookieValue(req, "adminLastLotId");
+                    if (lotIdParam == null && !allLots.isEmpty())
+                        lotIdParam = String.valueOf(allLots.get(0).getLotId());
                 }
                 if (lotIdParam != null) {
                     List<com.typeshii.model.Slot> slots = parkingService.getSlotsByLot(Integer.parseInt(lotIdParam));
@@ -141,6 +148,14 @@ public class AdminController extends HttpServlet {
             default:
                 res.sendRedirect(req.getContextPath() + "/admin/login");
         }
+    }
+
+    private String getCookieValue(HttpServletRequest req, String name) {
+        Cookie[] cookies = req.getCookies();
+        if (cookies != null)
+            for (Cookie c : cookies)
+                if (name.equals(c.getName())) return c.getValue();
+        return null;
     }
 
     // map a lotId string back to its display name — needed to pick the right coordinate array
