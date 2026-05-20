@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.List;
 
 
-// handles /slot/enter, /slot/exit, /slot/reserve — the actual parking actions
+// handles /slot/enter, /slot/exit, /slot/reserve 
 public class SlotController extends HttpServlet {
 
     private ParkingService parkingService = new ParkingService();

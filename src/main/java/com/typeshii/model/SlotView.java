@@ -1,5 +1,5 @@
 package com.typeshii.model;
-
+//maps slot data to SlotView Object
 public class SlotView {
 
     private int slotNo;

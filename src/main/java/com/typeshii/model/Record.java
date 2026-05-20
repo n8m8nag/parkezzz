@@ -2,7 +2,7 @@ package com.typeshii.model;
 
 import java.sql.Timestamp;
 
-// record model - maps to record table
+// record model maps to record table
 public class Record {
 
     private int recordId;

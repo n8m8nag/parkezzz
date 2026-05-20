@@ -114,7 +114,7 @@
         </c:if>
 
         <%-- popup for occupied/reserved slot --%>
-        <c:if test="${not empty selectedSlot && selectedSlot.slotLabel != 'Available' && not empty activeRecord}">
+        <c:if test="${not empty selectedSlot && selectedSlot.slotLabel != 'Available'}">
             <div class="popup-overlay">
                 <div class="popup-box">
                     <p class="popup-slot-label">Slot ${selectedSlot.slotNo}</p>
@@ -128,7 +128,7 @@
                         <input type="hidden" name="slotNo"    value="${selectedSlot.slotNo}"/>
                         <input type="hidden" name="lotId"     value="${selectedSlot.lotId}"/>
                         <input type="hidden" name="vehicleNo" value="${activeRecord.vehicleNo}"/>
-                        <input type="hidden" name="userId"    value="${activeRecord.userId}"/>
+                        <input type="hidden" name="userId"    value="${not empty activeRecord.userId ? activeRecord.userId : 1}"/>
                         <button type="submit" class="btn-clear">Clear</button>
                     </form>
                     <a href="${pageContext.request.contextPath}/admin/slotMap" class="btn-close">&#x2715;</a>

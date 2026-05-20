@@ -8,7 +8,7 @@ import com.typeshii.model.Lot;
 import com.typeshii.model.Record;
 import java.util.List;
 
-// business logic for parking stuff
+// business logic for parking 
 public class ParkingService {
 
     private SlotDAO slotDAO = new SlotDAO();
@@ -72,7 +72,7 @@ public class ParkingService {
         return updated;
     }
 
-    // get who is currently in a slot - for admin popup
+    // get who is currently in a slot  for admin popup
     public Record getActiveRecord(int slotNo) {
         return recordDAO.getActiveRecord(slotNo);
     }

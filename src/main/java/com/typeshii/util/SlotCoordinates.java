@@ -8,7 +8,7 @@ import java.util.List;
 // holds the % position arrays for each lot's schematic and builds SlotView lists for the JSP
 public class SlotCoordinates {
 
-    // ---- Skill-Motorcycle: 105 slots (6 cols x 15 rows + 15 bottom) ----
+    //  Skill-Motorcycle: 105 slots (6 cols x 15 rows + 15 bottom) 
     public static final double[][] SKILL_MOTO = {
         {6.3265, 6.9565, 7.7551, 4.1304},
         {6.3265, 11.9565, 7.7551, 4.1304},
@@ -117,7 +117,7 @@ public class SlotCoordinates {
         {78.2653, 87.8261, 4.3878, 8.6957},
     };
 
-    // ---- Skill-Car: 120 slots (4 main cols x22 + 3 right boxes) ----
+    //  Skill-Car: 120 slots (4 main cols x22 + 3 right boxes) 
     public static final double[][] SKILL_CAR = {
         {7.6372, 6.6071, 9.5465, 3.2143},
         {7.6372, 10.5357, 9.5465, 3.2143},
@@ -241,7 +241,7 @@ public class SlotCoordinates {
         {79.7136, 88.7500, 9.5465, 3.2143},
     };
 
-    // ---- Himal-Motorcycle: 160 slots (4 double-rows x 20 cols x 2 lanes) ----
+    //Himal-Motorcycle: 160 slots (4 double-rows x 20 cols x 2 lanes) 
     public static final double[][] HIMAL_MOTO = {
         {6.6667,10.2222,4.3333,7.2222},{11.0000,10.2222,4.3333,7.2222},{15.3333,10.2222,4.3333,7.2222},{19.6667,10.2222,4.3333,7.2222},{24.0000,10.2222,4.3333,7.2222},
         {28.3333,10.2222,4.3333,7.2222},{32.6667,10.2222,4.3333,7.2222},{37.0000,10.2222,4.3333,7.2222},{41.3333,10.2222,4.3333,7.2222},{45.6667,10.2222,4.3333,7.2222},
@@ -277,7 +277,7 @@ public class SlotCoordinates {
         {71.6667,82.1111,4.3333,7.2222},{76.0000,82.1111,4.3333,7.2222},{80.3333,82.1111,4.3333,7.2222},{84.6667,82.1111,4.3333,7.2222},{89.0000,82.1111,4.3333,7.2222},
     };
 
-    // ---- Kumari-Motorcycle: 158 slots ----
+    //Kumari-Motorcycle: 158 slots
     public static final double[][] KUMARI_MOTO = {
         {10.9184,5.0,5.102,3.5},{10.9184,9.0,5.102,3.5},{10.9184,13.0,5.102,3.5},{10.9184,17.0,5.102,3.5},{10.9184,21.0,5.102,3.5},
         {10.9184,25.0,5.102,3.5},{10.9184,29.0,5.102,3.5},{10.9184,33.0,5.102,3.5},{10.9184,37.0,5.102,3.5},{10.9184,41.0,5.102,3.5},
@@ -313,7 +313,7 @@ public class SlotCoordinates {
         {76.7347,90.75,3.8776,6.5},{81.1224,90.75,3.8776,6.5},{85.5102,90.75,3.8776,6.5},
     };
 
-    // ---- Kumari-Car: 41 slots ----
+    //Kumari-Car: 41 slots
     public static final double[][] KUMARI_CAR = {
         {5.6122,10.0000,8.6735,10.0000},{15.1020,10.0000,8.6735,10.0000},{24.5918,10.0000,8.6735,10.0000},
         {34.0816,10.0000,8.6735,10.0000},{43.5714,10.0000,8.6735,10.0000},{53.0612,10.0000,8.6735,10.0000},
@@ -333,7 +333,7 @@ public class SlotCoordinates {
         {70.3061,81.9231,6.6327,9.6154},{77.7551,81.9231,6.6327,9.6154},{85.2041,81.9231,6.6327,9.6154},
     };
 
-    // builds a SlotView for every slot — includes inline style for schematic lots, CSS class for grid fallback
+    // builds a SlotView for every slot  includes inline style for schematic lots, CSS class for grid fallback
     public static List<SlotView> buildSlotViews(List<Slot> slots, String lotName) {
         double[][] coords = null;
         if      ("Skill - Motorcycle".equals(lotName))  coords = SKILL_MOTO;
@@ -350,7 +350,7 @@ public class SlotCoordinates {
             sv.setLotId(slot.getLotId());
             sv.setLabel(slot.getSlotLabel());
 
-            // schematic lot — build a positioned inline style; otherwise fall back to grid CSS class
+            // schematic lot build a positioned inline style; otherwise fall back to grid CSS class
             if (coords != null && i < coords.length) {
                 double[] p = coords[i];
                 String color = "Occupied".equals(slot.getSlotLabel()) ? "#dc2626"

@@ -1,6 +1,6 @@
 package com.typeshii.model;
 
-// slot model - maps to slot table
+// slot model  maps to slot table
 public class Slot {
 
     private int slotNo;

@@ -13,7 +13,7 @@ public class UserService {
     private UserDAO userDAO = new UserDAO();
     private VehicleDAO vehicleDAO = new VehicleDAO();
 
-    // login - find user by vehicle number
+    // login find user by vehicle number
     public User login(String vehicleNo) {
         Vehicle vehicle = vehicleDAO.getVehicleByPlate(vehicleNo);
         if (vehicle == null) return null;

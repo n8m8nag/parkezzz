@@ -45,7 +45,7 @@ public class VehicleDAO {
         return vehicles;
     }
 
-    // get first vehicle_no per user - bulk fetch for admin users page
+    // get all VehicleNo mapped by users for user record page
     public Map<Integer, String> getVehicleNoMapByUser() {
         Map<Integer, String> map = new HashMap<>();
         String sql = "SELECT user_id, vehicle_no FROM vehicle";

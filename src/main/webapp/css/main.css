@@ -61,7 +61,7 @@ label {
 
 .logo-container {
     width: 630px;
-    height: 630px;
+    height: 800px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,7 +70,7 @@ label {
 }
 
 .main-logo {
-    width: 100%;
+    width: 180%;
     height: auto;
     object-fit: contain;
     filter: drop-shadow(0 0 20px rgba(77, 142, 240, 0.4));

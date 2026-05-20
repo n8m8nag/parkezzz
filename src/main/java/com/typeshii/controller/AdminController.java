@@ -13,15 +13,16 @@ import java.util.List;
 
 
 
-// handles all /admin/* routes — login, dashboard, slot map, users, reports
+//Redirection to all admin related pages
 public class AdminController extends HttpServlet {
 
     private ParkingService parkingService = new ParkingService();
     private UserService userService = new UserService();
 
-    // stored in memory — can be changed at runtime via /admin/changeKey
+    //Storing AdminKey As a Static String In Memory
     private static String ADMIN_KEY = "admin123";
 
+    // Do Get Function For our Admin Panel
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
@@ -31,7 +32,7 @@ public class AdminController extends HttpServlet {
 
         switch (path) {
             case "/login":
-                // pull error from session (set after a failed POST) and expose it to the JSP
+                // pull error from session (set after a failed POST) and expose it to the JSP(Show "Invalid Admin Key" After Failed Login)
                 String err = (String) req.getSession().getAttribute("error");
                 if (err != null) {
                     req.getSession().removeAttribute("error");
@@ -200,7 +201,7 @@ public class AdminController extends HttpServlet {
         }
     }
 
-    // update the admin key in memory — no persistence, resets on server restart
+    // update the admin key in memory 
     private void handleChangeKey(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
 
